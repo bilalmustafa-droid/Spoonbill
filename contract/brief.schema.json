@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BriefSchema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "anomaly_id",
+    "status",
+    "model",
+    "generated_at",
+    "en",
+    "zh_hant",
+    "citations",
+    "human_review_required",
+    "abstain_reason",
+    "redaction_log"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "anomaly_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["cited", "abstained_human_review", "error"] },
+    "model": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "en": { "type": "object" },
+    "zh_hant": { "type": "object" },
+    "citations": { "type": "array" },
+    "human_review_required": { "type": "boolean" },
+    "abstain_reason": { "type": ["string", "null"] },
+    "redaction_log": { "type": "object" }
+  }
+}
