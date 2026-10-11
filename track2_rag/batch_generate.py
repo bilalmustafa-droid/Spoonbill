@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from track2_rag.rag.generator import BriefGenerator
+from rag.generator import BriefGenerator
 import jsonschema
 
 def run_batch():

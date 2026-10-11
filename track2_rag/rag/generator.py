@@ -2,14 +2,26 @@ import json
 import os
 from pathlib import Path
 import google.generativeai as genai
-from track2_rag.rag.retriever import HybridRetriever
+from rag.retriever import HybridRetriever
 
 class BriefGenerator:
     def __init__(self, chroma_dir: str, chunks_path: str):
         self.retriever = HybridRetriever(chunks_path, chroma_dir)
+        
+        # Load API key directly from .env file if not in environment
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key:
+            env_path = Path("track2_rag/.env")
+            if env_path.exists():
+                with open(env_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.startswith("GEMINI_API_KEY="):
+                            api_key = line.split("=", 1)[1].strip()
+                            break
+                            
+        if not api_key:
             raise ValueError("GEMINI_API_KEY environment variable is not set in .env")
+            
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel("gemini-1.5-pro")
 
@@ -42,11 +54,10 @@ Retrieved Statutory Context Chunks:
 {context_text}
 
 Instructions:
-1. Provide output in English only (leave zh_hant fields with basic English fallback matching structure).
-2. Use ONLY the provided statutory chunks for citations. 
-3. Include verbatim quotes (maximum 40 words) from the chunks in the citations array.
-4. Maintain a neutral tone: use terms like "possible", "preliminary observation", never state a definitive legal violation.
-5. Return ONLY valid JSON matching the brief schema structure.
+1. Return ONLY valid raw JSON matching the required schema. No markdown backticks.
+2. Provide output in English.
+3. Use ONLY the provided statutory chunks for citations. Include verbatim quotes (maximum 40 words).
+4. Maintain a neutral screening tone.
 """
         
         try:
@@ -54,6 +65,8 @@ Instructions:
             raw_text = response.text.strip()
             if raw_text.startswith("```json"):
                 raw_text = raw_text[7:]
+            if raw_text.startswith("```"):
+                raw_text = raw_text[3:]
             if raw_text.endswith("```"):
                 raw_text = raw_text[:-3]
                 

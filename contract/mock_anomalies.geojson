@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.03, 22.48], [114.04, 22.48], [114.04, 22.49], [114.03, 22.49], [114.03, 22.48]]]
+      },
+      "properties": {
+        "anomaly_id": "DB-0001",
+        "area_ha": 1.42,
+        "delta_vv_db": 5.9,
+        "delta_ndwi": -0.35,
+        "zone_hint": "WBA",
+        "first_detection_date": "2025-04-15"
+      }
+    }
+  ]
+}
