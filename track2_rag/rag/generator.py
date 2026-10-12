@@ -22,8 +22,8 @@ class BriefGenerator:
             raise ValueError("GEMINI_API_KEY environment variable is not set in .env")
             
         genai.configure(api_key=api_key)
-        # Using gemini-1.5-flash-latest for robust API alias matching
-        self.model = genai.GenerativeModel("gemini-3-flash")
+        # Updated to use the latest Gemini 3.8 Flash model
+        self.model = genai.GenerativeModel("gemini-3.8-flash")
 
     def generate_brief(self, anomaly: dict) -> dict:
         props = anomaly["properties"]
@@ -57,10 +57,10 @@ JSON Schema structure requirements:
 - schema_version: "1.0"
 - anomaly_id: "{anomaly_id}"
 - status: "cited"
-- model: "gemini-1.5-flash-latest"
+- model: "gemini-3.8-flash"
 - generated_at: "2026-10-11T00:00:00Z"
 - en: object with keys title, summary, evidence (array of strings), statutory_basis (array of strings), recommended_action, limitations
-- zh_hant: same keys as en (can contain English text)
+- zh_hant: same keys as en (can contain traditional chinese or English text)
 - citations: array of objects with chunk_id, document_title, page_number, verbatim_quote
 - human_review_required: true
 - abstain_reason: null
@@ -78,7 +78,12 @@ Instructions:
                 generation_config={"response_mime_type": "application/json"}
             )
             raw_text = response.text.strip()
-            brief_data = json.loads(raw_text)
+            if raw_text.startswith("```json"):
+                raw_text = raw_text[7:]
+            if raw_text.endswith("```"):
+                raw_text = raw_text[:-3]
+                
+            brief_data = json.loads(raw_text.strip())
             return brief_data
         except Exception as e:
             return self._build_abstain_brief(anomaly_id, f"Generation or parsing error: {str(e)}")
@@ -88,7 +93,7 @@ Instructions:
             "schema_version": "1.0",
             "anomaly_id": anomaly_id,
             "status": "abstained_human_review",
-            "model": "gemini-1.5-flash-latest",
+            "model": "gemini-3.8-flash",
             "generated_at": "2026-10-11T00:00:00Z",
             "en": {
                 "title": "Preliminary Observation: Requires Manual Review",

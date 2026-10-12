@@ -166,3 +166,25 @@ Days 13-14: code freeze, no schema changes, support demo rehearsals, keep cached
 | 9 | Documents have licence or reuse restrictions | Low | Medium | Record source and terms in `SOURCES.md`; use government publications for analysis, quote short snippets only | Remove the document from the repo and index it locally only; the demo shows citations without redistributing the full text |
 
 **Definition of done for this track:** every anomaly in `anomalies_v1.geojson` has a validated brief JSON (cited or abstained), all citation and redaction tests pass, Chinese briefs have been human-reviewed, and Track 3 renders the briefs without edits.
+
+
+
+
+# Track 2: GenAI & RAG Backend Progress Log
+
+## Architecture Overview
+* **Corpus & Indexing:** ChromaDB vector database persisting 231 statutory chunks (`track2_rag/chroma_db`).
+* **Retrieval Engine:** Hybrid search using `BAAI/bge-m3` dense embeddings and `BM25` sparse indexing (`track2_rag/rag/retriever.py`).
+* **Generation Engine:** Gemini API integration (`gemini-1.5-flash-latest`) handling prompt construction, statutory citation mapping, and structured JSON output (`track2_rag/rag/generator.py`).
+* **Validation & Schema:** Strict adherence to `contract/brief.schema.json` enforced via Python's `jsonschema` library.
+
+## Completed Milestones
+* [x] Ingested core statutory guidelines (TPB PG-No. 12C, etc.) into chunked JSON corpus.
+* [x] Validated hybrid retriever performance on Deep Bay wetland queries.
+* [x] Implemented programmatic abstain rules for incomplete statutory matches.
+* [x] Established batch generation script (`batch_generate.py`) for processing anomaly GeoJSON files.
+* [x] Successfully generated and schema-validated first end-to-end enforcement brief (`data/briefs/DB-0001.json`).
+
+## Next Steps
+* Expand mock anomaly test cases in `contract/mock_anomalies.geojson` to test multiple simultaneous site polygons.
+* Integrate Track 2 brief outputs into the frontend dashboard review interface.
