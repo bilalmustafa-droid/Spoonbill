@@ -1,58 +1,30 @@
 {
   "schema_version": "1.0",
   "anomaly_id": "DB-0001",
-  "status": "cited",
-  "model": "gemini-1.5-pro",
-  "generated_at": "2026-10-06T09:00:00Z",
+  "status": "abstained_human_review",
+  "model": "gemini-1.5-flash-latest",
+  "generated_at": "2026-10-11T00:00:00Z",
   "en": {
-    "title": "Preliminary Observation: Possible Wetland Loss at Site A",
-    "summary": "A 1.42 ha area within the Wetland Buffer Area shows a persistent transition from water-covered to dry surface.",
-    "evidence": [
-      "Affected area: 1.42 ha",
-      "Radar backscatter rose 5.9 dB above baseline",
-      "NDWI fell 0.35 below baseline",
-      "First detected 2025-04, persistent in 5 of 6 recent months"
-    ],
-    "statutory_basis": [
-      {
-        "claim": "Developments within the Wetland Buffer Area are subject to assessment requirements under Town Planning Board guidelines.",
-        "citation_ids": ["TPB12C-p7-c3"]
-      }
-    ],
-    "recommended_action": "Refer for site inspection and zoning confirmation by the relevant authority.",
-    "limitations": "Satellite-derived indicator for screening purposes only. This is not a legal determination of unauthorised development. Findings require site verification by the relevant authority."
+    "title": "Preliminary Observation: Requires Manual Review",
+    "summary": "Automatic statutory matching inconclusive.",
+    "evidence": [],
+    "statutory_basis": [],
+    "recommended_action": "Refer for manual officer inspection.",
+    "limitations": "Satellite-derived indicator for screening purposes only."
   },
   "zh_hant": {
-    "title": "初步觀察：A 地點可能出現濕地損失",
-    "summary": "位於濕地緩衝區內一片 1.42 公頃的土地顯示出由水體覆蓋轉變為乾燥表面的持續變化。",
-    "evidence": [
-      "受影響面積：1.42 公頃",
-      "雷達後向散射較基準上升 5.9 dB",
-      "NDWI 較基準下降 0.35",
-      "首次發現於 2025-04，在最近 6 個月中持續 5 個月"
-    ],
-    "statutory_basis": [
-      {
-        "claim": "濕地緩衝區內的發展須根據相關城市規劃委員會指引進行評估要求。",
-        "citation_ids": ["TPB12C-p7-c3"]
-      }
-    ],
-    "recommended_action": "轉交主管部門進行實地核實及規劃用途確認。",
-    "limitations": "本結果為衛星遙感篩查指標，僅供參考，並非對違例發展的法律認定。相關發現須由主管部門進行實地核實。"
+    "title": "Preliminary Observation: Requires Manual Review",
+    "summary": "Automatic statutory matching inconclusive.",
+    "evidence": [],
+    "statutory_basis": [],
+    "recommended_action": "Refer for manual officer inspection.",
+    "limitations": "Satellite-derived indicator for screening purposes only."
   },
-  "citations": [
-    {
-      "id": "TPB12C-p7-c3",
-      "doc": "TPB PG-No. 12C",
-      "doc_title_zh": "城規會規劃指引編號 12C",
-      "page": 7,
-      "section": "Assessment requirements",
-      "quote": "Application for developments within the Deep Bay Area under Section 16 of the Town Planning Ordinance.",
-      "source_url": "https://www.info.gov.hk/tpb/"
-    }
-  ],
-  "human_review_required": false,
-  "abstain_reason": null,
-  "redaction_log": { "items_removed": 0, "types": [] },
-  "metrics": { "latency_ms": 1200, "input_tokens": 1500, "output_tokens": 400 }
+  "citations": [],
+  "human_review_required": true,
+  "abstain_reason": "Generation or parsing error: 404 models/gemini-3-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+  "redaction_log": {
+    "items_removed": 0,
+    "types": []
+  }
 }
