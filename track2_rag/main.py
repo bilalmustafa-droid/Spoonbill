@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from rag.generator import BriefGenerator
+from track2_rag.rag.generator import BriefGenerator
 
 app = FastAPI(
     title="Project Spoonbill - Track 2 RAG & Enforcement Brief API",
@@ -46,7 +46,6 @@ def get_brief(anomaly_id: str):
         with open(brief_path, "r", encoding="utf-8") as f:
             return json.load(f)
             
-    # If not pre-generated, check if it exists in mock/live anomalies to generate on-the-fly
     geojson_paths = ["contract/mock_anomalies.geojson", "data/anomalies_v1.geojson"]
     target_feature = None
     
@@ -67,10 +66,8 @@ def get_brief(anomaly_id: str):
     if not generator:
         raise HTTPException(status_code=500, detail="BriefGenerator failed to initialize.")
         
-    # Generate on the fly
     brief = generator.generate_brief(target_feature)
     
-    # Save to disk cache
     BRIEFS_DIR.mkdir(parents=True, exist_ok=True)
     with open(brief_path, "w", encoding="utf-8") as f:
         json.dump(brief, f, ensure_ascii=False, indent=2)

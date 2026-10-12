@@ -2,7 +2,7 @@ import json
 import os
 from pathlib import Path
 import google.generativeai as genai
-from rag.retriever import HybridRetriever
+from .retriever import HybridRetriever
 
 class BriefGenerator:
     def __init__(self, chroma_dir: str, chunks_path: str):
