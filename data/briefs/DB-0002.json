@@ -5,55 +5,45 @@
   "model": "gemini-3.8-flash",
   "generated_at": "2026-10-11T00:00:00Z",
   "en": {
-    "title": "Preliminary Enforcement Brief: Suspected Unauthorized Development in Wetland Conservation Area (DB-0002)",
-    "summary": "Remote sensing detection on 2025-05-02 identified surface changes covering approximately 0.85 ha within the Wetland Conservation Area (WCA). Changes include a positive radar backscatter delta of 4.2 dB and a negative NDWI delta of -0.22, suggesting potential vegetation clearance, pond filling, or unapproved structural activity that conflicts with statutory conservation intentions.",
+    "title": "Preliminary Enforcement Brief: Potential Unauthorized Pond Filling in Wetland Conservation Area (DB-0002)",
+    "summary": "Remote sensing detection indicates potential pond filling or ground disturbance across 0.85 ha within the Wetland Conservation Area (WCA). Changes in NDWI (-0.22) and radar backscatter (+4.2 dB) observed on 2025-05-02 suggest loss of open water surface and alteration of site topography, potentially conflicting with statutory planning intentions for fish pond conservation.",
     "evidence": [
-      "Affected area of 0.85 ha identified via remote sensing on 2025-05-02.",
-      "Radar Backscatter Delta of +4.2 dB indicating increased surface roughness or physical structure emergence.",
-      "NDWI Delta of -0.22 indicating loss of open surface water or significant moisture reduction indicative of pond drying or filling."
+      "Affected area estimated at 0.85 hectares within the Wetland Conservation Area (WCA).",
+      "Normalized Difference Water Index (NDWI) delta of -0.22 indicates loss of open surface water.",
+      "Synthetic Aperture Radar (SAR) backscatter increase of 4.2 dB indicates surface roughness changes consistent with earth filling or structural disturbance.",
+      "Anomaly first detected on 2025-05-02."
     ],
     "statutory_basis": [
-      "Town Planning Board Guidelines: Planning intention of the WCA is to conserve the ecological value of fish ponds forming an integral part of the wetland ecosystem.",
-      "New development within the WCA is not permitted unless supporting ecological conservation or serving as essential infrastructure with overriding public interest.",
-      "Wetland compensation and ecological impact assessments are required for any development involving pond filling."
+      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: The planning intention of the WCA is to conserve the ecological value of fish ponds.",
+      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: New development within the WCA is not permitted unless supporting conservation or serving as an essential infrastructure project with overriding public interest.",
+      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: Wetland compensation and planning permission are required for any development involving pond filling."
     ],
-    "recommended_action": "Conduct immediate on-site inspection to verify ground truth, ascertain if unauthorized pond filling or construction has occurred, and issue statutory notices if planning permission is absent.",
-    "limitations": "Findings are based solely on satellite-derived radiometric and radar anomalies; physical ground inspection and confirmation against planning permission records are required."
+    "recommended_action": "Conduct an urgent on-site inspection to verify the nature of ground works, check planning register records for valid planning permission under Section 16 of the Town Planning Ordinance, and issue a statutory notice if unauthorized pond filling is confirmed.",
+    "limitations": "Findings are based on satellite radar and optical spectral analysis without ground truthing. Cadastral boundary verification and field inspection are required to confirm precise land status and actual on-site activities."
   },
   "zh_hant": {
-    "title": "初步執法簡報：濕地保育區疑似違例發展 (DB-0002)",
-    "summary": "於2025年5月2日透過遙感監測發現濕地保育區（WCA）內約0.85公頃土地出現地表變化。雷達後向散射變化量為+4.2 dB，NDWI變化量為-0.22，顯示可能存在未經許可的填塘或平整工程，有違相關規劃意向。",
+    "title": "初步執法摘要：濕地保育區內疑似未經授權填塘工程（DB-0002）",
+    "summary": "遙感監測顯示濕地保育區（WCA）內約0.85公頃土地可能存在填塘或地面擾動情況。2025年5月2日錄得之歸一化水體指數變化（-0.22）及雷達後向散射變化（+4.2 dB）顯示水面消失及地表粗糙度改變，可能違反魚塘保育的法定規劃意向。",
     "evidence": [
-      "2025年5月2日遙感監測顯示受影響面積達0.85公頃。",
-      "雷達後向散射變化達+4.2 dB，顯示地表粗糙度增加或有新增構築物。",
-      "NDWI水體指數下降-0.22，顯示水體面積或含水量減少，可能涉及填塘活動。"
+      "受影響面積估算為0.85公頃，位於濕地保育區（WCA）界線內。",
+      "歸一化水體指數（NDWI）下降0.22，顯示開闊水體流失。",
+      "雷達後向散射增加4.2 dB，符合填土或地形受擾動之特徵。",
+      "最初偵測日期為2025年5月2日。"
     ],
     "statutory_basis": [
-      "城市規劃委員會指引：濕地保育區的規劃意向是保育構成后海灣濕地生態系統不可或缺一部分的魚塘之生態價值。",
-      "除非為支持該區生態價值保育所必需，或是具壓倒性公眾利益的必要基建項目，否則濕地保育區內不允許進行新發展。",
-      "涉及填塘的任何發展均須進行濕地補償並提交生態影響評估。"
+      "城市規劃委員會規劃指引編號12C第6.1段：濕地保育區的規劃意向是保育魚塘的生態價值。",
+      "城市規劃委員會規劃指引編號12C第6.1段：除非為支援該區生態價值保育或具壓倒性公眾利益之必要基建，否則濕地保育區內不容許新發展。",
+      "城市規劃委員會規劃指引編號12C第6.1段：任何涉及填塘的發展均須進行濕地補償，並須取得規劃許可。"
     ],
-    "recommended_action": "進行實地巡查核實現場情況，確認是否存在未經許可的填塘或工程活動，並在未獲規劃許可之情況下採取相應法定執行管制行動。",
-    "limitations": "監測結果僅基於衛星遙感數據異常，須進行實地視察並核對法定規劃申請紀錄以作證實。"
+    "recommended_action": "儘速安排實地督察以核實地面工程性質，查核規劃許可名冊是否涵蓋該地段，如證實涉及違例填塘應採取進一步法定執行管制行動。",
+    "limitations": "本分析基於衛星雷達及光學頻譜遙感數據，尚未進行地面實地核證。須覆核地段界線及展開實地調查以確定確切土地現況。"
   },
   "citations": [
     {
       "chunk_id": "pg12c_e-p4",
-      "document_title": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area",
-      "page_number": "4",
-      "verbatim_quote": "The planning intention of the WCA is to conserve the ecological value of the fish ponds which form an integral part of the wetland ecosystem in the Deep Bay Area."
-    },
-    {
-      "chunk_id": "pg12c_e-p4",
-      "document_title": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area",
-      "page_number": "4",
-      "verbatim_quote": "New development within the WCA would not be allowed unless it is required to support the conservation of the ecological value of the area or the development is an essential infrastructural project with overriding public interest."
-    },
-    {
-      "chunk_id": "pg12c_e-p4",
-      "document_title": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area",
-      "page_number": "4",
-      "verbatim_quote": "Wetland compensation is required for any development involving pond filling and mitigation measures against disturbance would be necessary."
+      "document_title": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page_number": 4,
+      "verbatim_quote": "Wetland compensation is required for any development involving pond filling and mitigation measures against disturbance would be necessary. They would be imposed as part of the planning approval conditions."
     }
   ],
   "human_review_required": true,
