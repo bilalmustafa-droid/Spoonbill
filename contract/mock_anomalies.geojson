@@ -15,6 +15,36 @@
         "zone_hint": "WBA",
         "first_detection_date": "2025-04-15"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.01, 22.50], [114.02, 22.50], [114.02, 22.51], [114.01, 22.51], [114.01, 22.50]]]
+      },
+      "properties": {
+        "anomaly_id": "DB-0002",
+        "area_ha": 0.85,
+        "delta_vv_db": 4.2,
+        "delta_ndwi": -0.22,
+        "zone_hint": "WCA",
+        "first_detection_date": "2025-05-02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.05, 22.47], [114.06, 22.47], [114.06, 22.48], [114.05, 22.48], [114.05, 22.47]]]
+      },
+      "properties": {
+        "anomaly_id": "DB-0003",
+        "area_ha": 3.10,
+        "delta_vv_db": 7.5,
+        "delta_ndwi": -0.50,
+        "zone_hint": "WBA",
+        "first_detection_date": "2025-06-10"
+      }
     }
   ]
 }
