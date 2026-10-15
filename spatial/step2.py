@@ -60,6 +60,15 @@ SITES = {
 SITE_HALF_LON = 0.010
 SITE_HALF_LAT = 0.007
 
+# Bounding box covering both sites with margin, used only for the one-time
+# S1 orbit-pass scan in main() -- not the per-site detection AOI.
+AOI_BBOX = [
+    min(s["lon"] for s in SITES.values()) - SITE_HALF_LON - 0.02,
+    min(s["lat"] for s in SITES.values()) - SITE_HALF_LAT - 0.02,
+    max(s["lon"] for s in SITES.values()) + SITE_HALF_LON + 0.02,
+    max(s["lat"] for s in SITES.values()) + SITE_HALF_LAT + 0.02,
+]
+
 AOI_NAME = "Deep Bay fishpond belt"
 BASELINE_WINDOW = ("2023-01-01", "2024-12-31")
 CURRENT_WINDOW_START = "2025-01-01"
@@ -100,6 +109,34 @@ def month_starts(start: str, end: str):
         out.append((cur.strftime("%Y-%m-%d"), nxt.strftime("%Y-%m-%d"), cur.month))
         cur = nxt
     return out
+
+
+def detect_orbit_pass(ee, aoi, current_end):
+    """Picks whichever of ASCENDING/DESCENDING actually has Sentinel-1 IW/VV
+    coverage over this AOI across the full baseline+current span, instead of
+    assuming one. A hardcoded DESCENDING produced zero S1 scenes for every
+    single month over Deep Bay in an earlier run -- this is what that bug
+    looked like, and why it is checked rather than guessed."""
+    counts = {}
+    for pass_dir in ("DESCENDING", "ASCENDING"):
+        counts[pass_dir] = (
+            ee.ImageCollection("COPERNICUS/S1_GRD")
+            .filterBounds(aoi)
+            .filterDate(BASELINE_WINDOW[0], current_end)
+            .filter(ee.Filter.eq("instrumentMode", "IW"))
+            .filter(ee.Filter.eq("orbitProperties_pass", pass_dir))
+            .filter(ee.Filter.listContains("transmitterReceiverPolarisation", "VV"))
+            .size()
+            .getInfo()
+        )
+    best = max(counts, key=counts.get)
+    print(f"S1 orbit scan over {BASELINE_WINDOW[0]} to {current_end}: "
+          f"DESCENDING={counts['DESCENDING']} scenes, ASCENDING={counts['ASCENDING']} scenes -> using {best}")
+    if counts[best] == 0:
+        print("WARNING: zero Sentinel-1 IW/VV scenes found in EITHER orbit pass for this AOI "
+              "and date range. The detector will not find anything -- check the AOI coordinates "
+              "and date range before re-running.")
+    return best
 
 
 # --------------------------------------------------------------- EE PIPELINE
@@ -202,7 +239,12 @@ def build_baseline_climatology(ee, aoi):
         if ndwi is not None:
             ndwi_by_month.setdefault(cal_month, []).append(ndwi)
             ndwi_all.append(ndwi)
-        print(f"  baseline {start}: S1 scenes n/a (composited), S2 scenes n/a (composited)")
+        print(f"  baseline {start}: S1 (VV, {S1_ORBIT_PASS}) scenes={n_vv}, S2 (NDWI) scenes={n_ndwi}")
+
+    if not vv_by_month:
+        print("  WARNING: zero S1 VV scenes matched for every single baseline month. "
+              "The orbit-pass auto-detection below should prevent this, but if you still "
+              "see this, double check the AOI actually has Sentinel-1 coverage at all.")
 
     vv_climatology = {m: ee.ImageCollection(imgs).median() for m, imgs in vv_by_month.items()}
     ndwi_climatology = {m: ee.ImageCollection(imgs).median() for m, imgs in ndwi_by_month.items()}
@@ -527,6 +569,10 @@ def main():
 
     project = get_project_id(args.project)
     init_ee(ee, project)
+
+    global S1_ORBIT_PASS
+    scan_aoi = ee.Geometry.Rectangle(AOI_BBOX)
+    S1_ORBIT_PASS = detect_orbit_pass(ee, scan_aoi, args.current_end)
 
     all_features = []
     for site_id, site_cfg in SITES.items():
