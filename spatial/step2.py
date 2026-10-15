@@ -299,6 +299,18 @@ def run_site_detection(ee, site_id, site_cfg, current_end):
         print(f"[{site_id}] fewer than {PERSISTENCE_WINDOW_MONTHS} usable months -- skipping this site.")
         return [], []
 
+    # Diagnostic: flagged hectares per month, individually, before any
+    # persistence requirement. If every month here is ~0 ha, the fusion
+    # rule itself (thresholds, or the wet-baseline gate) is the thing to
+    # revisit, not the persistence/area filters further down.
+    area_img = ee.Image.pixelArea()
+    print(f"[{site_id}] per-month flagged area (before persistence filter):")
+    for (start, _, _), flag in zip(usable_months, flag_images):
+        ha = area_img.updateMask(flag).reduceRegion(
+            reducer=ee.Reducer.sum(), geometry=aoi, scale=STATS_SCALE_M, maxPixels=1e9
+        ).getInfo().get("area", 0) / 10000.0
+        print(f"    {start}: {ha:.2f} ha flagged")
+
     last6 = flag_images[-PERSISTENCE_WINDOW_MONTHS:]
     last2 = flag_images[-PERSISTENCE_LATEST_MONTHS:]
     flag_sum = ee.ImageCollection(last6).sum()
@@ -307,8 +319,20 @@ def run_site_detection(ee, site_id, site_cfg, current_end):
         latest_and = latest_and.And(f)
     persistent = flag_sum.gte(PERSISTENCE_MIN_FLAGS).And(latest_and)
 
+    pre_opening_ha = area_img.updateMask(persistent).reduceRegion(
+        reducer=ee.Reducer.sum(), geometry=aoi, scale=STATS_SCALE_M, maxPixels=1e9
+    ).getInfo().get("area", 0) / 10000.0
+    print(f"[{site_id}] persistent (>= {PERSISTENCE_MIN_FLAGS}/{PERSISTENCE_WINDOW_MONTHS} months, "
+          f"both of latest {PERSISTENCE_LATEST_MONTHS}) area before morphological opening: {pre_opening_ha:.3f} ha "
+          f"(min_area_ha filter is {THRESHOLDS['min_area_ha']} ha)")
+
     # Morphological opening (remove isolated flagged pixels).
     persistent = persistent.focalMin(20, "square", "meters").focalMax(20, "square", "meters")
+
+    post_opening_ha = area_img.updateMask(persistent).reduceRegion(
+        reducer=ee.Reducer.sum(), geometry=aoi, scale=STATS_SCALE_M, maxPixels=1e9
+    ).getInfo().get("area", 0) / 10000.0
+    print(f"[{site_id}] persistent area after morphological opening: {post_opening_ha:.3f} ha")
 
     # Per-pixel index of the first month (within the current window) that
     # was ever individually flagged -- feeds first_detection_date below.
