@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "anomaly_id": "DB-0010",
+  "status": "abstained_human_review",
+  "model": "fixture-generator (no LLM)",
+  "generated_at": "2026-10-01T00:00:00Z",
+  "citations": [],
+  "human_review_required": true,
+  "abstain_reason": "Citation verification failed for every candidate clause, so no statutory claim could be supported. Referred for human review.",
+  "redaction_log": {
+    "items_removed": 0,
+    "types": []
+  },
+  "en": {
+    "title": "Preliminary Observation: Possible Wetland Loss at Site C",
+    "summary": "A 0.45 ha area outside the Wetland Conservation and Buffer Areas (indicative zoning) shows a persistent transition from water-covered to dry or filled surface, first observed in April 2026 and present in 3 of the last 6 months.",
+    "evidence": [
+      "Affected area: 0.45 ha",
+      "Radar backscatter rose +3.3 dB above the 2023-2024 baseline for the same month",
+      "NDWI changed by -0.26 against the same-month baseline",
+      "First detected 2026-04, persistent in 3 of 6 recent months"
+    ],
+    "statutory_basis": [],
+    "recommended_action": "Refer for site inspection and zoning confirmation by the relevant authority.",
+    "limitations": "Satellite-derived indicator for screening purposes only. This is not a legal determination of unauthorised development. Findings require site verification by the relevant authority."
+  },
+  "zh_hant": {
+    "title": "初步觀察：C 地點可能出現濕地損失",
+    "summary": "一幅面積約 0.45 公頃、位於濕地保育區及濕地緩衝區以外（指示性分區）的範圍，自 2026 年 4 月起持續由水體覆蓋轉為乾地或填土表面，並於最近 6 個月中的 3 個月出現。",
+    "evidence": [
+      "受影響面積：0.45 公頃",
+      "雷達後向散射較 2023 至 2024 年同月基線上升 +3.3 dB",
+      "NDWI 較同月基線變化 -0.26",
+      "首次偵測於 2026-04，最近 6 個月中持續 3 個月"
+    ],
+    "statutory_basis": [],
+    "recommended_action": "建議轉介主管部門進行實地視察及確認土地用途地帶。",
+    "limitations": "本結果為衛星遙感篩查指標，僅供參考，並非對違例發展的法律認定。相關發現須由主管部門進行實地核實。"
+  }
+}

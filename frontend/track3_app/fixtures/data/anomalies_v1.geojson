@@ -1,0 +1,852 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "schema_version": "1.0",
+    "generated_at": "2026-10-01T00:00:00Z",
+    "aoi_name": "Deep Bay, Hong Kong (SYNTHETIC FIXTURE)",
+    "baseline_window": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "current_window": [
+      "2025-01-01",
+      "2026-09-30"
+    ],
+    "sensors": [
+      "Sentinel-1 VV",
+      "Sentinel-2 SR"
+    ],
+    "thresholds": {
+      "delta_vv_db": 3.0,
+      "delta_ndwi": -0.25,
+      "despeckle": "3x3 focal median",
+      "persistence_rule": ">=4 of last 6 months and flagged in latest 2",
+      "min_area_ha": 0.1
+    },
+    "anomaly_count": 10
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.042299,
+              22.49576
+            ],
+            [
+              114.044011,
+              22.495862
+            ],
+            [
+              114.043958,
+              22.494685
+            ],
+            [
+              114.042256,
+              22.494499
+            ],
+            [
+              114.042299,
+              22.49576
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0001",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.04312,
+        "centroid_lat": 22.4952,
+        "area_ha": 2.36,
+        "baseline_vv_db": -19.8,
+        "current_vv_db": -12.6,
+        "delta_vv_db": 7.2,
+        "baseline_ndwi": 0.33,
+        "current_ndwi": -0.07,
+        "delta_ndwi": -0.4,
+        "first_detection_date": "2025-03-01",
+        "persistence_count": 6,
+        "persistence_total": 6,
+        "confidence_tier": "high",
+        "zone_hint": "WBA",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0001_before.png",
+        "chip_after_png": "chips/DB-0001_after.png",
+        "timeseries": {
+          "months": [
+            "2023-01",
+            "2023-02",
+            "2023-03",
+            "2023-04",
+            "2023-05",
+            "2023-06",
+            "2023-07",
+            "2023-08",
+            "2023-09",
+            "2023-10",
+            "2023-11",
+            "2023-12",
+            "2024-01",
+            "2024-02",
+            "2024-03",
+            "2024-04",
+            "2024-05",
+            "2024-06",
+            "2024-07",
+            "2024-08",
+            "2024-09",
+            "2024-10",
+            "2024-11",
+            "2024-12",
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01",
+            "2026-02",
+            "2026-03",
+            "2026-04",
+            "2026-05",
+            "2026-06",
+            "2026-07",
+            "2026-08",
+            "2026-09"
+          ],
+          "vv_db": [
+            -19.6,
+            -19.8,
+            -19.4,
+            -19.5,
+            -19.6,
+            -19.2,
+            -20.2,
+            -20.0,
+            -20.2,
+            -20.4,
+            -20.0,
+            -20.0,
+            -20.1,
+            -19.6,
+            -19.4,
+            -19.1,
+            -19.4,
+            -19.2,
+            -19.8,
+            -19.8,
+            -20.3,
+            -20.2,
+            -20.5,
+            -20.0,
+            -19.8,
+            -19.7,
+            -12.5,
+            -11.8,
+            -12.2,
+            -12.5,
+            -12.9,
+            -12.5,
+            -13.4,
+            -13.3,
+            -12.8,
+            -13.1,
+            -12.9,
+            -12.2,
+            -12.4,
+            -12.2,
+            -12.3,
+            -12.1,
+            -12.9,
+            -13.2,
+            -13.3
+          ],
+          "ndwi": [
+            0.3,
+            0.37,
+            0.34,
+            0.38,
+            0.35,
+            0.33,
+            0.31,
+            0.33,
+            0.29,
+            0.31,
+            0.3,
+            0.31,
+            0.34,
+            0.37,
+            0.34,
+            0.35,
+            0.33,
+            0.35,
+            0.34,
+            0.31,
+            0.33,
+            0.28,
+            0.29,
+            0.33,
+            0.31,
+            0.36,
+            -0.02,
+            -0.04,
+            -0.05,
+            -0.05,
+            -0.06,
+            -0.09,
+            -0.08,
+            -0.13,
+            -0.1,
+            -0.1,
+            -0.05,
+            -0.04,
+            -0.06,
+            -0.01,
+            -0.04,
+            -0.07,
+            -0.08,
+            -0.09,
+            -0.11
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                114.077018,
+                22.502901
+              ],
+              [
+                114.078037,
+                22.502755
+              ],
+              [
+                114.078061,
+                22.501864
+              ],
+              [
+                114.076957,
+                22.501826
+              ],
+              [
+                114.077018,
+                22.502901
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                114.078542,
+                22.502548
+              ],
+              [
+                114.079173,
+                22.502536
+              ],
+              [
+                114.079204,
+                22.50172
+              ],
+              [
+                114.078554,
+                22.50171
+              ],
+              [
+                114.078542,
+                22.502548
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0002",
+        "site_id": "SITE_B",
+        "centroid_lon": 114.07796,
+        "centroid_lat": 22.50226,
+        "area_ha": 1.79,
+        "baseline_vv_db": -19.2,
+        "current_vv_db": -13.1,
+        "delta_vv_db": 6.1,
+        "baseline_ndwi": 0.29,
+        "current_ndwi": -0.05,
+        "delta_ndwi": -0.34,
+        "first_detection_date": "2025-05-01",
+        "persistence_count": 5,
+        "persistence_total": 6,
+        "confidence_tier": "high",
+        "zone_hint": "WBA",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0002_before.png",
+        "chip_after_png": "chips/DB-0002_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.035799,
+              22.499246
+            ],
+            [
+              114.037094,
+              22.499116
+            ],
+            [
+              114.037112,
+              22.498293
+            ],
+            [
+              114.035787,
+              22.498202
+            ],
+            [
+              114.035799,
+              22.499246
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0003",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.03642,
+        "centroid_lat": 22.49871,
+        "area_ha": 1.39,
+        "baseline_vv_db": -20.1,
+        "current_vv_db": -13.9,
+        "delta_vv_db": 6.2,
+        "baseline_ndwi": 0.35,
+        "current_ndwi": -0.02,
+        "delta_ndwi": -0.37,
+        "first_detection_date": "2025-06-01",
+        "persistence_count": 5,
+        "persistence_total": 6,
+        "confidence_tier": "high",
+        "zone_hint": "WCA",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0003_before.png",
+        "chip_after_png": "chips/DB-0003_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.032501,
+              22.463203
+            ],
+            [
+              114.033662,
+              22.463228
+            ],
+            [
+              114.033614,
+              22.462415
+            ],
+            [
+              114.032482,
+              22.462243
+            ],
+            [
+              114.032501,
+              22.463203
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0004",
+        "site_id": "SITE_C",
+        "centroid_lon": 114.03305,
+        "centroid_lat": 22.46277,
+        "area_ha": 1.15,
+        "baseline_vv_db": -18.9,
+        "current_vv_db": -12.4,
+        "delta_vv_db": 6.5,
+        "baseline_ndwi": 0.27,
+        "current_ndwi": -0.09,
+        "delta_ndwi": -0.36,
+        "first_detection_date": "2025-02-01",
+        "persistence_count": 6,
+        "persistence_total": 6,
+        "confidence_tier": "high",
+        "zone_hint": "OTHER",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0004_before.png",
+        "chip_after_png": "chips/DB-0004_after.png",
+        "timeseries": {
+          "months": [
+            "2023-01",
+            "2023-02",
+            "2023-03",
+            "2023-04",
+            "2023-05",
+            "2023-06",
+            "2023-07",
+            "2023-08",
+            "2023-09",
+            "2023-10",
+            "2023-11",
+            "2023-12",
+            "2024-01",
+            "2024-02",
+            "2024-03",
+            "2024-04",
+            "2024-05",
+            "2024-06",
+            "2024-07",
+            "2024-08",
+            "2024-09",
+            "2024-10",
+            "2024-11",
+            "2024-12",
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01",
+            "2026-02",
+            "2026-03",
+            "2026-04",
+            "2026-05",
+            "2026-06",
+            "2026-07",
+            "2026-08",
+            "2026-09"
+          ],
+          "vv_db": [
+            -18.7,
+            -18.4,
+            -18.3,
+            -18.7,
+            -18.4,
+            -18.6,
+            -18.8,
+            -19.3,
+            -19.1,
+            -19.3,
+            -19.6,
+            -19.2,
+            -19.2,
+            -18.7,
+            -18.3,
+            -18.5,
+            -18.9,
+            -18.8,
+            -18.6,
+            -18.9,
+            -19.2,
+            -19.1,
+            -19.5,
+            -19.0,
+            -19.3,
+            -12.5,
+            -11.9,
+            -11.9,
+            -11.9,
+            -11.9,
+            -12.3,
+            -12.9,
+            -12.5,
+            -13.3,
+            -13.1,
+            -12.9,
+            -12.2,
+            -11.9,
+            -12.0,
+            -11.6,
+            -12.1,
+            -11.8,
+            -12.1,
+            -12.8,
+            -13.1
+          ],
+          "ndwi": [
+            0.29,
+            0.31,
+            0.32,
+            0.32,
+            0.27,
+            0.27,
+            0.29,
+            0.26,
+            0.24,
+            0.22,
+            0.23,
+            0.24,
+            0.28,
+            0.26,
+            0.28,
+            0.29,
+            0.32,
+            0.3,
+            0.26,
+            0.28,
+            0.22,
+            0.22,
+            0.26,
+            0.23,
+            0.28,
+            -0.1,
+            -0.08,
+            -0.05,
+            -0.05,
+            -0.07,
+            -0.09,
+            -0.08,
+            -0.1,
+            -0.13,
+            -0.1,
+            -0.13,
+            -0.11,
+            -0.06,
+            -0.07,
+            -0.04,
+            -0.03,
+            -0.07,
+            -0.11,
+            -0.11,
+            -0.09
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.069602,
+              22.497211
+            ],
+            [
+              114.070719,
+              22.497343
+            ],
+            [
+              114.070992,
+              22.496298
+            ],
+            [
+              114.069398,
+              22.496231
+            ],
+            [
+              114.069602,
+              22.497211
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0005",
+        "site_id": "SITE_B",
+        "centroid_lon": 114.07019,
+        "centroid_lat": 22.49674,
+        "area_ha": 1.56,
+        "baseline_vv_db": -19.5,
+        "current_vv_db": -14.8,
+        "delta_vv_db": 4.7,
+        "baseline_ndwi": 0.3,
+        "current_ndwi": 0.02,
+        "delta_ndwi": -0.28,
+        "first_detection_date": "2025-07-01",
+        "persistence_count": 5,
+        "persistence_total": 6,
+        "confidence_tier": "medium",
+        "zone_hint": "WBA",
+        "optical_available": false,
+        "chip_before_png": null,
+        "chip_after_png": "chips/DB-0005_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.047319,
+              22.507332
+            ],
+            [
+              114.048296,
+              22.507171
+            ],
+            [
+              114.048385,
+              22.506368
+            ],
+            [
+              114.047345,
+              22.506409
+            ],
+            [
+              114.047319,
+              22.507332
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0006",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.04782,
+        "centroid_lat": 22.50682,
+        "area_ha": 0.98,
+        "baseline_vv_db": -18.7,
+        "current_vv_db": -14.9,
+        "delta_vv_db": 3.8,
+        "baseline_ndwi": 0.26,
+        "current_ndwi": -0.01,
+        "delta_ndwi": -0.27,
+        "first_detection_date": "2025-08-01",
+        "persistence_count": 4,
+        "persistence_total": 6,
+        "confidence_tier": "medium",
+        "zone_hint": "UNKNOWN",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0006_before.png",
+        "chip_after_png": "chips/DB-0006_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.039707,
+              22.466892
+            ],
+            [
+              114.040558,
+              22.46686
+            ],
+            [
+              114.040751,
+              22.466025
+            ],
+            [
+              114.03971,
+              22.46604
+            ],
+            [
+              114.039707,
+              22.466892
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0007",
+        "site_id": "SITE_C",
+        "centroid_lon": 114.04018,
+        "centroid_lat": 22.46644,
+        "area_ha": 0.91,
+        "baseline_vv_db": -19.0,
+        "current_vv_db": -15.2,
+        "delta_vv_db": 3.8,
+        "baseline_ndwi": 0.24,
+        "current_ndwi": -0.03,
+        "delta_ndwi": -0.27,
+        "first_detection_date": "2025-09-01",
+        "persistence_count": 4,
+        "persistence_total": 6,
+        "confidence_tier": "medium",
+        "zone_hint": "WBA",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0007_before.png",
+        "chip_after_png": "chips/DB-0007_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.084821,
+              22.508479
+            ],
+            [
+              114.085668,
+              22.508536
+            ],
+            [
+              114.085733,
+              22.507713
+            ],
+            [
+              114.084893,
+              22.507793
+            ],
+            [
+              114.084821,
+              22.508479
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0008",
+        "site_id": "SITE_B",
+        "centroid_lon": 114.08529,
+        "centroid_lat": 22.50813,
+        "area_ha": 0.72,
+        "baseline_vv_db": -18.6,
+        "current_vv_db": -15.1,
+        "delta_vv_db": 3.5,
+        "baseline_ndwi": 0.25,
+        "current_ndwi": -0.02,
+        "delta_ndwi": -0.27,
+        "first_detection_date": "2026-01-01",
+        "persistence_count": 4,
+        "persistence_total": 6,
+        "confidence_tier": "medium",
+        "zone_hint": "OTHER",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0008_before.png",
+        "chip_after_png": "chips/DB-0008_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.050592,
+              22.489246
+            ],
+            [
+              114.051333,
+              22.489263
+            ],
+            [
+              114.051415,
+              22.488651
+            ],
+            [
+              114.050581,
+              22.488757
+            ],
+            [
+              114.050592,
+              22.489246
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0009",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.05099,
+        "centroid_lat": 22.48897,
+        "area_ha": 0.49,
+        "baseline_vv_db": -18.4,
+        "current_vv_db": -15.0,
+        "delta_vv_db": 3.4,
+        "baseline_ndwi": 0.21,
+        "current_ndwi": -0.06,
+        "delta_ndwi": -0.27,
+        "first_detection_date": "2026-03-01",
+        "persistence_count": 3,
+        "persistence_total": 6,
+        "confidence_tier": "low",
+        "zone_hint": "UNKNOWN",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0009_before.png",
+        "chip_after_png": "chips/DB-0009_after.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.029501,
+              22.470381
+            ],
+            [
+              114.030151,
+              22.470426
+            ],
+            [
+              114.030116,
+              22.469733
+            ],
+            [
+              114.02952,
+              22.469816
+            ],
+            [
+              114.029501,
+              22.470381
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "anomaly_id": "DB-0010",
+        "site_id": "SITE_C",
+        "centroid_lon": 114.02983,
+        "centroid_lat": 22.47009,
+        "area_ha": 0.45,
+        "baseline_vv_db": -18.2,
+        "current_vv_db": -14.9,
+        "delta_vv_db": 3.3,
+        "baseline_ndwi": 0.22,
+        "current_ndwi": -0.04,
+        "delta_ndwi": -0.26,
+        "first_detection_date": "2026-04-01",
+        "persistence_count": 3,
+        "persistence_total": 6,
+        "confidence_tier": "low",
+        "zone_hint": "OTHER",
+        "optical_available": true,
+        "chip_before_png": "chips/DB-0010_before.png",
+        "chip_after_png": "chips/DB-0010_after.png"
+      }
+    }
+  ]
+}

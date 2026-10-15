@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spoonbill.local/contract/brief.schema.json",
+  "title": "Project Spoonbill brief (contract v1.0)",
+  "description": "data/briefs/{anomaly_id}.json, written by Track 2, read by Track 3. Cross-reference rules that JSON Schema cannot express (every citation_id resolves against citations[], quote is at most 40 words) are checked in consumer code.",
+  "type": "object",
+  "required": [
+    "schema_version", "anomaly_id", "status", "model", "generated_at",
+    "en", "zh_hant", "citations", "human_review_required", "abstain_reason", "redaction_log"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "anomaly_id": { "type": "string", "pattern": "^DB-\\d{4}$" },
+    "status": { "enum": ["cited", "abstained_human_review", "error"] },
+    "model": { "type": "string" },
+    "generated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+    },
+    "en": { "$ref": "#/$defs/language_block" },
+    "zh_hant": { "$ref": "#/$defs/language_block" },
+    "citations": { "type": "array", "items": { "$ref": "#/$defs/citation" } },
+    "human_review_required": { "type": "boolean" },
+    "abstain_reason": { "type": ["string", "null"] },
+    "redaction_log": {
+      "type": "object",
+      "required": ["items_removed", "types"],
+      "properties": {
+        "items_removed": { "type": "integer", "minimum": 0 },
+        "types": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "latency_ms": { "type": "number", "minimum": 0 },
+        "input_tokens": { "type": "integer", "minimum": 0 },
+        "output_tokens": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "cited" } } },
+      "then": {
+        "properties": {
+          "en": { "properties": {
+            "statutory_basis": { "minItems": 1 },
+            "evidence": { "minItems": 3 } } },
+          "zh_hant": { "properties": {
+            "statutory_basis": { "minItems": 1 },
+            "evidence": { "minItems": 3 } } },
+          "citations": { "minItems": 1 },
+          "abstain_reason": { "type": "null" }
+        }
+      },
+      "else": {
+        "properties": {
+          "en": { "properties": { "statutory_basis": { "maxItems": 0 } } },
+          "zh_hant": { "properties": { "statutory_basis": { "maxItems": 0 } } },
+          "human_review_required": { "const": true }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "abstained_human_review" } } },
+      "then": {
+        "properties": {
+          "abstain_reason": { "type": "string", "minLength": 1 },
+          "en": { "properties": { "evidence": { "minItems": 3 } } },
+          "zh_hant": { "properties": { "evidence": { "minItems": 3 } } }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "required": ["claim", "citation_ids"],
+      "properties": {
+        "claim": { "type": "string", "minLength": 1 },
+        "citation_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "language_block": {
+      "type": "object",
+      "required": ["title", "summary", "evidence", "statutory_basis", "recommended_action", "limitations"],
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "evidence": { "type": "array", "items": { "type": "string" }, "maxItems": 6 },
+        "statutory_basis": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "recommended_action": { "type": "string" },
+        "limitations": { "type": "string" }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "description": "doc_title_zh and source_url are required by PROJECT_CONTEXT 5.2 (TRACK_2 example omits them; PROJECT_CONTEXT wins). doc_title_zh may be an empty string; source_url may be null when no public URL exists (assumption).",
+      "required": ["id", "doc", "doc_title_zh", "page", "section", "quote", "source_url"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "doc": { "type": "string", "minLength": 1 },
+        "doc_title_zh": { "type": "string" },
+        "page": { "type": "integer", "minimum": 1 },
+        "section": { "type": "string" },
+        "quote": { "type": "string", "minLength": 1 },
+        "source_url": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

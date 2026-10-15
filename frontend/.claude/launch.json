@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "spoonbill-ui",
+      "runtimeExecutable": "D:\\Spoonbill UIUX Bilal\\track3_app\\.venv\\Scripts\\python.exe",
+      "runtimeArgs": ["-m", "streamlit", "run", "app.py", "--server.port", "8501", "--server.headless", "true"],
+      "cwd": "D:\\Spoonbill UIUX Bilal\\track3_app",
+      "port": 8501
+    }
+  ]
+}

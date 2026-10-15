@@ -1,0 +1,14 @@
+[global]
+# The sidebar primes widget values from session state (see ui/state.py); the date range widget also
+# passes value= to stay in range mode. That combination is intentional.
+disableWidgetStateDuplicationWarning = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#1F6F8B"
