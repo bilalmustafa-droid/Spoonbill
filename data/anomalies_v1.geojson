@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "metadata": {
     "schema_version": "1.0",
-    "generated_at": "2026-10-15T14:17:44Z",
+    "generated_at": "2026-10-15T14:33:15Z",
     "aoi_name": "Deep Bay fishpond belt",
     "baseline_window": [
       "2023-01-01",
@@ -27,5 +27,3 @@
   },
   "features": []
 }
-
-
