@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "schema_version": "1.0",
+    "generated_at": "2026-10-15T14:17:44Z",
+    "aoi_name": "Deep Bay fishpond belt",
+    "baseline_window": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "current_window": [
+      "2025-01-01",
+      "2026-10-01"
+    ],
+    "sensors": [
+      "Sentinel-1",
+      "Sentinel-2"
+    ],
+    "thresholds": {
+      "delta_vv_db": 3.0,
+      "delta_ndwi": -0.25,
+      "despeckle": "3x3 focal median",
+      "persistence_rule": ">=4 of last 6 months and flagged in latest 2",
+      "min_area_ha": 0.1
+    },
+    "anomaly_count": 0
+  },
+  "features": []
+}
