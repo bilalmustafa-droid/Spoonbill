@@ -1,0 +1,12 @@
+# Project Spoonbill integration API dependencies.
+# Spatial/Earth Engine deps (requests, Pillow, earthengine-api) intentionally
+# excluded here -- not required to run the API, see spatial/ for that track's
+# own setup.
+fastapi
+uvicorn[standard]
+google-generativeai
+chromadb
+sentence-transformers
+rank_bm25
+jsonschema
+python-dotenv

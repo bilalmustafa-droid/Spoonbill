@@ -1,0 +1,22 @@
+{
+  "_comment": "Hand-maintained reference data for showcase sites and map framing. NOT generated detection output -- do not treat as live anomaly data.",
+  "aoi_bbox": {
+    "description": "Deep Bay / Mai Po area-of-interest bounding box for map framing",
+    "min_lon": 114.00,
+    "min_lat": 22.46,
+    "max_lon": 114.07,
+    "max_lat": 22.52
+  },
+  "sites": [
+    {
+      "site_id": "mai_po_4p3ha",
+      "label": "Mai Po (4.3 ha)",
+      "area_ha": 4.3
+    },
+    {
+      "site_id": "san_tin_9ha",
+      "label": "San Tin (9 ha)",
+      "area_ha": 9
+    }
+  ]
+}

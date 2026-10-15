@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(SPOONBILL_OFFLINE=1 python -c \"import track2_rag.main as m; print\\('APP OK'\\); print\\('generator:', m.generator\\); print\\('generator_init_error:', m.generator_init_error\\); print\\('routes:'\\); [print\\(' ', r.path\\) for r in m.app.routes]\")"
+    ]
+  }
+}
