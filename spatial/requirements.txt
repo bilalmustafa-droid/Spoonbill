@@ -1,0 +1,9 @@
+# Extra dependencies for the Earth Engine detection scripts in this folder
+# (spatial/step2.py and spatial/ruhan code.py). Install these on the machine
+# that has Earth Engine access -- they are not needed to run the API or the
+# backend pipeline in track2_rag/ or scripts/.
+earthengine-api
+requests
+Pillow
+shapely
+jsonschema

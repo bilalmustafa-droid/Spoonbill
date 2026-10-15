@@ -10,3 +10,4 @@ sentence-transformers
 rank_bm25
 jsonschema
 python-dotenv
+shapely
