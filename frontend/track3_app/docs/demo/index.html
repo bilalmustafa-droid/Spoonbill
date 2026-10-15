@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spoonbill UI walkthrough</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;margin:0;background:#f4f5f7;color:#1d1f23}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+h1{margin:.2em 0} .note{background:#7a1f1f;color:#fff;padding:8px 14px;border-radius:6px;display:inline-block}
+figure{margin:28px 0;background:#fff;border:1px solid #dde1e6;border-radius:8px;overflow:hidden}
+figcaption{padding:10px 14px;font-weight:500;border-bottom:1px solid #eceef1}
+img,video{width:100%;display:block} .pdf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pdf img{border:1px solid #dde1e6;border-radius:6px;background:#fff}
+</style></head><body><main>
+<h1>Project Spoonbill: UI walkthrough</h1>
+<p class="note">Recorded on synthetic fixture data, not real satellite results.</p>
+<figure><figcaption>Captioned video of the full demo path</figcaption>
+<video src="walkthrough.webm" controls muted playsinline></video></figure>
+<figure><figcaption><b>1.</b> Project Spoonbill: satellite screening of Deep Bay wetland change (fixture data)</figcaption><img src="01_landing_overview.png" alt="Project Spoonbill: satellite screening of Deep Bay wetland change (fixture data)" loading="lazy"></figure>
+<figure><figcaption><b>2.</b> Hover shows ID, tier, area and indicative zoning</figcaption><img src="02_map_hover_tooltip.png" alt="Hover shows ID, tier, area and indicative zoning" loading="lazy"></figure>
+<figure><figcaption><b>3.</b> Click a polygon to open its detail panel</figcaption><img src="03_map_click_selected.png" alt="Click a polygon to open its detail panel" loading="lazy"></figure>
+<figure><figcaption><b>4.</b> Confidence badge, persistence meter, indicative zoning and the metrics table</figcaption><img src="04_detail_metrics.png" alt="Confidence badge, persistence meter, indicative zoning and the metrics table" loading="lazy"></figure>
+<figure><figcaption><b>5.</b> Before and after image chips (synthetic placeholders in fixture mode)</figcaption><img src="05_detail_chips.png" alt="Before and after image chips (synthetic placeholders in fixture mode)" loading="lazy"></figure>
+<figure><figcaption><b>6.</b> Monthly radar and NDWI time series against the 2023-2024 baseline</figcaption><img src="06_detail_timeseries.png" alt="Monthly radar and NDWI time series against the 2023-2024 baseline" loading="lazy"></figure>
+<figure><figcaption><b>7.</b> Cited brief: every statutory claim opens to its source, page, section and quote</figcaption><img src="07_brief_cited_with_citation.png" alt="Cited brief: every statutory claim opens to its source, page, section and quote" loading="lazy"></figure>
+<figure><figcaption><b>8.</b> A citation ID that does not resolve is flagged visibly, never dropped or invented</figcaption><img src="08_brief_citation_unavailable.png" alt="A citation ID that does not resolve is flagged visibly, never dropped or invented" loading="lazy"></figure>
+<figure><figcaption><b>9.</b> Radar-only detection (cloud) with a missing &#x27;before&#x27; image placeholder</figcaption><img src="09_detail_radar_only_missing_chip.png" alt="Radar-only detection (cloud) with a missing &#x27;before&#x27; image placeholder" loading="lazy"></figure>
+<figure><figcaption><b>10.</b> Abstained brief: a deliberate &#x27;Requires human review&#x27; state, not an error</figcaption><img src="10_brief_abstained_human_review.png" alt="Abstained brief: a deliberate &#x27;Requires human review&#x27; state, not an error" loading="lazy"></figure>
+<figure><figcaption><b>11.</b> Generation error: neutral notice, no stack trace; satellite metrics still shown</figcaption><img src="11_brief_error_notice.png" alt="Generation error: neutral notice, no stack trace; satellite metrics still shown" loading="lazy"></figure>
+<figure><figcaption><b>12.</b> No brief yet: &#x27;analysis pending&#x27;</figcaption><img src="12_brief_pending.png" alt="No brief yet: &#x27;analysis pending&#x27;" loading="lazy"></figure>
+<figure><figcaption><b>13.</b> Switch to Traditional Chinese: selection, filters and map view are kept</figcaption><img src="13_zh_landing.png" alt="Switch to Traditional Chinese: selection, filters and map view are kept" loading="lazy"></figure>
+<figure><figcaption><b>14.</b> The same abstained brief in Traditional Chinese</figcaption><img src="14_zh_brief_abstained.png" alt="The same abstained brief in Traditional Chinese" loading="lazy"></figure>
+<figure><figcaption><b>15.</b> Low-confidence detections are hidden by default; the toggle reveals them (dotted grey)</figcaption><img src="15_filters_show_low.png" alt="Low-confidence detections are hidden by default; the toggle reveals them (dotted grey)" loading="lazy"></figure>
+<figure><figcaption><b>16.</b> Demo mode: preloads the three strongest detections and a scripted click path</figcaption><img src="16_demo_mode_panel.png" alt="Demo mode: preloads the three strongest detections and a scripted click path" loading="lazy"></figure>
+<figure><figcaption><b>17.</b> Step through the strongest detections with Next</figcaption><img src="17_demo_mode_step3.png" alt="Step through the strongest detections with Next" loading="lazy"></figure>
+<figure><figcaption><b>18.</b> One-click export: bilingual PDF and DOCX, generated in memory</figcaption><img src="18_export_buttons.png" alt="One-click export: bilingual PDF and DOCX, generated in memory" loading="lazy"></figure>
+<figure><figcaption><b>19.</b> Footer: methodology from the data file and the mandatory disclaimer</figcaption><img src="19_footer_methodology_disclaimer.png" alt="Footer: methodology from the data file and the mandatory disclaimer" loading="lazy"></figure>
+<h2>Exported PDF (downloaded through the app's button)</h2><div class="pdf"><img src="sample_export_DB-0004_en_page1.png" alt="Exported PDF page"><img src="sample_export_DB-0004_en_page2.png" alt="Exported PDF page"></div>
+</main></body></html>

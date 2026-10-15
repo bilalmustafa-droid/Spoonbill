@@ -1,0 +1,12 @@
+# Track 3 runtime + test dependencies. Python 3.11+ (developed on 3.13, Windows).
+# PDF uses reportlab: WeasyPrint needs GTK/Pango system libraries that are not present on Windows.
+streamlit==1.65.0
+streamlit-folium==0.27.4
+folium==0.20.0
+shapely==2.2.0
+pydantic==2.14.0
+jsonschema==4.26.0
+pillow==12.3.0
+reportlab==5.0.1
+python-docx==1.2.0
+pytest==9.1.1

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "anomaly_id": "DB-0007",
+  "status": "error",
+  "model": "fixture-generator (no LLM)",
+  "generated_at": "2026-10-01T00:00:00Z",
+  "citations": [],
+  "human_review_required": true,
+  "abstain_reason": null,
+  "redaction_log": {
+    "items_removed": 0,
+    "types": []
+  },
+  "en": {
+    "title": "Brief generation failed",
+    "summary": "",
+    "evidence": [],
+    "statutory_basis": [],
+    "recommended_action": "",
+    "limitations": "Satellite-derived indicator for screening purposes only. This is not a legal determination of unauthorised development. Findings require site verification by the relevant authority."
+  },
+  "zh_hant": {
+    "title": "簡報生成失敗",
+    "summary": "",
+    "evidence": [],
+    "statutory_basis": [],
+    "recommended_action": "",
+    "limitations": "本結果為衛星遙感篩查指標，僅供參考，並非對違例發展的法律認定。相關發現須由主管部門進行實地核實。"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spoonbill.local/contract/anomaly.schema.json",
+  "title": "Project Spoonbill anomalies FeatureCollection (contract v1.0)",
+  "description": "data/anomalies_v1.geojson, written by Track 1, read by Tracks 2 and 3. EPSG:4326, longitude then latitude. Additional properties are allowed so that new OPTIONAL fields can be added without breaking consumers (PROJECT_CONTEXT section 4, rule 5).",
+  "type": "object",
+  "required": ["type", "metadata", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "features": { "type": "array", "items": { "$ref": "#/$defs/feature" } }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "timestamp_utc": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+    },
+    "date_window": {
+      "type": "array",
+      "prefixItems": [{ "$ref": "#/$defs/date" }, { "$ref": "#/$defs/date" }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "schema_version", "generated_at", "aoi_name", "baseline_window",
+        "current_window", "sensors", "thresholds", "anomaly_count"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "generated_at": { "$ref": "#/$defs/timestamp_utc" },
+        "aoi_name": { "type": "string", "minLength": 1 },
+        "baseline_window": { "$ref": "#/$defs/date_window" },
+        "current_window": { "$ref": "#/$defs/date_window" },
+        "sensors": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+        "thresholds": {
+          "type": "object",
+          "required": ["delta_vv_db", "delta_ndwi", "despeckle", "persistence_rule", "min_area_ha"],
+          "properties": {
+            "delta_vv_db": { "type": "number" },
+            "delta_ndwi": { "type": "number" },
+            "despeckle": { "type": "string" },
+            "persistence_rule": { "type": "string" },
+            "min_area_ha": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "anomaly_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "position": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "number", "minimum": -180, "maximum": 180 },
+        { "type": "number", "minimum": -90, "maximum": 90 }
+      ],
+      "minItems": 2,
+      "maxItems": 3
+    },
+    "linear_ring": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/position" },
+      "minItems": 4
+    },
+    "polygon_coords": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/linear_ring" },
+      "minItems": 1
+    },
+    "geometry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": { "const": "Polygon" },
+            "coordinates": { "$ref": "#/$defs/polygon_coords" }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": { "const": "MultiPolygon" },
+            "coordinates": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/polygon_coords" },
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "ndwi": { "type": "number", "minimum": -1, "maximum": 1 },
+    "ndwi_delta": { "type": "number", "minimum": -2, "maximum": 2 },
+    "chip_path": {
+      "description": "Path relative to data/, forward slashes, no leading slash, no '..'. null when missing.",
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\\\:]+\\.png$" }
+      ]
+    },
+    "timeseries": {
+      "description": "Optional Phase 2 field. All three arrays must have equal length (checked in code, not expressible here).",
+      "type": "object",
+      "required": ["months", "vv_db", "ndwi"],
+      "properties": {
+        "months": { "type": "array", "items": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" } },
+        "vv_db": { "type": "array", "items": { "type": "number" } },
+        "ndwi": { "type": "array", "items": { "$ref": "#/$defs/ndwi" } }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "required": [
+        "anomaly_id", "site_id", "centroid_lon", "centroid_lat", "area_ha",
+        "baseline_vv_db", "current_vv_db", "delta_vv_db",
+        "baseline_ndwi", "current_ndwi", "delta_ndwi",
+        "first_detection_date", "persistence_count", "persistence_total",
+        "confidence_tier", "zone_hint", "optical_available",
+        "chip_before_png", "chip_after_png"
+      ],
+      "properties": {
+        "anomaly_id": { "type": "string", "pattern": "^DB-\\d{4}$" },
+        "site_id": { "enum": ["SITE_A", "SITE_B", "SITE_C"] },
+        "centroid_lon": { "type": "number", "minimum": -180, "maximum": 180 },
+        "centroid_lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "area_ha": { "type": "number", "exclusiveMinimum": 0 },
+        "baseline_vv_db": { "type": "number" },
+        "current_vv_db": { "type": "number" },
+        "delta_vv_db": { "type": "number" },
+        "baseline_ndwi": { "$ref": "#/$defs/ndwi" },
+        "current_ndwi": { "$ref": "#/$defs/ndwi" },
+        "delta_ndwi": { "$ref": "#/$defs/ndwi_delta" },
+        "first_detection_date": { "$ref": "#/$defs/date" },
+        "persistence_count": { "type": "integer", "minimum": 0 },
+        "persistence_total": { "type": "integer", "minimum": 1 },
+        "confidence_tier": { "enum": ["high", "medium", "low"] },
+        "zone_hint": { "enum": ["WCA", "WBA", "OTHER", "UNKNOWN"] },
+        "optical_available": { "type": "boolean" },
+        "chip_before_png": { "$ref": "#/$defs/chip_path" },
+        "chip_after_png": { "$ref": "#/$defs/chip_path" },
+        "timeseries": { "$ref": "#/$defs/timeseries" },
+        "optical_brightness_flag": { "type": "boolean" }
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "geometry": { "$ref": "#/$defs/geometry" },
+        "properties": { "$ref": "#/$defs/properties" }
+      }
+    }
+  }
+}
