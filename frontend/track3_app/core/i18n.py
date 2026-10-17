@@ -114,7 +114,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "vs_baseline": {"en": "{value} vs baseline", "zh_hant": "較基線 {value}"},
     "chip_before": {"en": "Before (baseline)", "zh_hant": "之前（基線）"},
     "chip_after": {"en": "After (current)", "zh_hant": "之後（現時）"},
-    "chip_missing": {"en": "Image not available", "zh_hant": "未有影像"},
+    "chip_missing": {"en": "No chip image linked for this anomaly yet", "zh_hant": "此異常點尚未連結影像"},
     "chip_synthetic": {"en": "synthetic test image", "zh_hant": "合成測試影像"},
     "timeseries": {"en": "Monthly time series", "zh_hant": "每月時間序列"},
     "month": {"en": "Month", "zh_hant": "月份"},
