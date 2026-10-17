@@ -3,9 +3,9 @@
   "anomaly_id": "DB-0002",
   "status": "cited",
   "model": "gemini-3.8-flash",
-  "generated_at": "2026-10-11T00:00:00Z",
+  "generated_at": "2026-10-11T10:15:00Z",
   "en": {
-    "title": "Preliminary Enforcement Brief: Potential Unauthorized Pond Filling in Wetland Conservation Area (DB-0002)",
+    "title": "Preliminary Screening Note: Possible Pond Filling in Wetland Conservation Area (DB-0002)",
     "summary": "Remote sensing detection indicates potential pond filling or ground disturbance across 0.85 ha within the Wetland Conservation Area (WCA). Changes in NDWI (-0.22) and radar backscatter (+4.2 dB) observed on 2025-05-02 suggest loss of open water surface and alteration of site topography, potentially conflicting with statutory planning intentions for fish pond conservation.",
     "evidence": [
       "Affected area estimated at 0.85 hectares within the Wetland Conservation Area (WCA).",
@@ -33,12 +33,12 @@
         ]
       }
     ],
-    "recommended_action": "Conduct an urgent on-site inspection to verify the nature of ground works, check planning register records for valid planning permission under Section 16 of the Town Planning Ordinance, and issue a statutory notice if unauthorized pond filling is confirmed.",
+    "recommended_action": "Refer this parcel for ground verification and a planning register check to confirm whether valid planning permission exists under Section 16 of the Town Planning Ordinance.",
     "limitations": "Findings are based on satellite radar and optical spectral analysis without ground truthing. Cadastral boundary verification and field inspection are required to confirm precise land status and actual on-site activities."
   },
   "zh_hant": {
-    "title": "初步執法摘要：濕地保育區內疑似未經授權填塘工程（DB-0002）",
-    "summary": "遙感監測顯示濕地保育區（WCA）內約0.85公頃土地可能存在填塘或地面擾動情況。2025年5月2日錄得之歸一化水體指數變化（-0.22）及雷達後向散射變化（+4.2 dB）顯示水面消失及地表粗糙度改變，可能違反魚塘保育的法定規劃意向。",
+    "title": "初步篩選紀要：濕地保育區疑似填塘工程（DB-0002）",
+    "summary": "遙感監測顯示濕地保育區（WCA）內約0.85公頃土地出現地表變化，可能涉及填塘或地面擾動。2025年5月2日錄得之歸一化水體指數變化（-0.22）及雷達後向散射變化（+4.2 dB）顯示水面消失及地表粗糙度改變，情況有待實地核實。",
     "evidence": [
       "受影響面積估算為0.85公頃，位於濕地保育區（WCA）界線內。",
       "歸一化水體指數（NDWI）下降0.22，顯示開闊水體流失。",
@@ -65,7 +65,7 @@
         ]
       }
     ],
-    "recommended_action": "儘速安排實地督察以核實地面工程性質，查核規劃許可名冊是否涵蓋該地段，如證實涉及違例填塘應採取進一步法定執行管制行動。",
+    "recommended_action": "建議安排實地視察以核實地面工程性質，並查核規劃許可紀錄是否涵蓋該地段。",
     "limitations": "本分析基於衛星雷達及光學頻譜遙感數據，尚未進行地面實地核證。須覆核地段界線及展開實地調查以確定確切土地現況。"
   },
   "citations": [
@@ -74,7 +74,7 @@
       "doc": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
       "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
       "page": 4,
-      "section": "p.4",
+      "section": "para 6.1, p.4",
       "quote": "Wetland compensation is required for any development involving pond filling and mitigation measures against disturbance would be necessary. They would be imposed as part of the planning approval conditions.",
       "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     }

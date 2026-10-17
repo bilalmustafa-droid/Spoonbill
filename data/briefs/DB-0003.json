@@ -3,10 +3,10 @@
   "anomaly_id": "DB-0003",
   "status": "cited",
   "model": "gemini-3.8-flash",
-  "generated_at": "2026-10-11T00:00:00Z",
+  "generated_at": "2026-10-11T10:15:00Z",
   "en": {
-    "title": "Preliminary Enforcement Brief: Anomaly DB-0003 (Wetland Buffer Area)",
-    "summary": "Satellite remote sensing detected significant surface alteration within the Wetland Buffer Area (WBA) covering approximately 3.1 hectares starting on 2025-06-10. An observed radar backscatter increase of 7.5 dB combined with a -0.5 drop in NDWI indicates surface drying or filling, and potential structural deposition. Under Town Planning Board Guidelines, development or unauthorized site modification within the WBA requiring planning permission requires an ecological impact assessment.",
+    "title": "Preliminary Screening Note: Possible Land Change in Wetland Buffer Area (DB-0003)",
+    "summary": "Satellite remote sensing detected significant surface alteration within the Wetland Buffer Area (WBA) covering approximately 3.1 hectares starting on 2025-06-10. An observed radar backscatter increase of 7.5 dB combined with a -0.5 drop in NDWI indicates surface drying or filling, and potential structural deposition. Under Town Planning Board Guidelines, development within the WBA that requires planning permission also requires an ecological impact assessment.",
     "evidence": [
       "Anomaly ID DB-0003 detected on 2025-06-10.",
       "Affected spatial area measured at approximately 3.1 hectares in the WBA.",
@@ -39,11 +39,11 @@
         ]
       }
     ],
-    "recommended_action": "Conduct immediate on-site inspection to verify whether unauthorized filling, open storage, or construction is taking place, and cross-reference planning records to verify if valid planning permission or an approved ecological impact assessment exists for the site.",
+    "recommended_action": "Refer this parcel for ground verification and a planning register check to confirm whether valid planning permission or an approved ecological impact assessment exists for the site.",
     "limitations": "Remote sensing observations provide indicative physical surface changes only and cannot establish planning authorization status or specific commercial operational activity without physical ground inspection and official planning register checks."
   },
   "zh_hant": {
-    "title": "初步執法簡報：異常個案 DB-0003（濕地緩衝區）",
+    "title": "初步篩選紀要：異常個案 DB-0003（濕地緩衝區）",
     "summary": "衛星遙感監測於2025年6月10日在濕地緩衝區（WBA）內探測到顯著的地表變化，影響面積約3.1公頃。雷達後向散射增加7.5 dB且NDWI數值下降0.5，顯示存在水體減少、填土或構築物沉積跡象。根據城市規劃委員會指引，濕地緩衝區內需要規劃許可的發展或重建工程必須提交生態影響評估。",
     "evidence": [
       "異常個案 DB-0003 於 2025-06-10 首次偵測。",
@@ -77,7 +77,7 @@
         ]
       }
     ],
-    "recommended_action": "進行實地視察以確認是否存在未經授權的填土、露天貯物或工程活動，並查核法定規劃紀錄以核實該地點是否已獲規劃許可或已提交經批准的生態影響評估。",
+    "recommended_action": "建議安排實地視察，並查核規劃紀錄以核實該地點是否已獲規劃許可或已提交經批准的生態影響評估。",
     "limitations": "遙感數據僅反映地表物理特徵之變化，在未進行實地調查及核對法定規劃紀錄前，無法確認其法定規劃許可狀況或具體商業作業性質。"
   },
   "citations": [
@@ -86,7 +86,7 @@
       "doc": "Town Planning Board Guidelines No. 12C",
       "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
       "page": 6,
-      "section": "p.6",
+      "section": "para 6.4, p.6",
       "quote": "The intention of the WBA is to protect the ecological integrity of the fish ponds and wetland within the WCA and prevent development that would have a negative off-site disturbance impact on the ecological value of fish ponds.",
       "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
@@ -95,7 +95,7 @@
       "doc": "Town Planning Board Guidelines No. 12C",
       "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
       "page": 6,
-      "section": "p.6",
+      "section": "para 6.5, p.6",
       "quote": "Within the WBA, for development or redevelopment which requires planning permission from the Board, an ecological impact assessment would also need to be submitted.",
       "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
@@ -104,7 +104,7 @@
       "doc": "Town Planning Board Guidelines No. 12C",
       "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
       "page": 6,
-      "section": "p.6",
+      "section": "para 6.6, p.6",
       "quote": "Applications for new open storage or container back-up uses including workshops within the WBA, whether temporary or permanent, would normally not be allowed in view of the adverse disturbances of such activities on birds",
       "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     }

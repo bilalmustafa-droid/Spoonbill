@@ -4,7 +4,7 @@ One page to present from, and one page to actually understand the code. Written 
 
 ## 1. The pitch, in two sentences
 
-Hong Kong committed to "no net loss of wetland" for the Deep Bay / Mai Po fishpond belt. Spoonbill watches that commitment by detecting wetland-to-land conversions from satellite imagery, turning each detection into a citation-backed enforcement brief using HK's own planning guidelines, and showing both on a map a planning officer can actually use.
+Hong Kong committed to "no net loss of wetland" for the Deep Bay / Mai Po fishpond belt. Spoonbill watches that commitment by detecting wetland-to-land conversions from satellite imagery, turning each detection into a citation-backed screening brief using HK's own planning guidelines, and showing both on a map a planning officer can actually use.
 
 ## 2. The three tracks, one sentence each
 
@@ -22,7 +22,7 @@ Plus an **integration layer** (`track2_rag/api/`, `scripts/run_pipeline.py`) tha
 |---|---|
 | Satellite data | Google Earth Engine Python API — Sentinel-1 (SAR, VV polarization) + Sentinel-2 (optical, NDWI) |
 | Detection | Python, `shapely` for geometry, `jsonschema` for contract validation |
-| RAG retrieval | `chromadb` (vector store) + `sentence-transformers` (`BAAI/bge-m3` embedding model) + `rank_bm25` (sparse, currently unused in the live path — see §7) |
+| RAG retrieval | Dense retrieval over a chunked statutory corpus: `chromadb` (vector store) + `sentence-transformers` (`BAAI/bge-m3` embedding model). `rank_bm25` is imported but not called in the live retrieval path — not a "hybrid" retriever yet, despite the class name. |
 | Brief generation | Google Gemini (`google-generativeai`), prompted with retrieved statutory text chunks |
 | Backend API (optional) | FastAPI + Uvicorn |
 | UI | Streamlit, `streamlit-folium` (map), `python-docx` + `reportlab` (export) |
@@ -69,13 +69,13 @@ Two schema files at `contract/`, both JSON Schema Draft 2020-12:
 | File | Role |
 |---|---|
 | `step2.py` | The real detector. Sentinel-1 VV + Sentinel-2 NDWI monthly composites, 2023–2024 baseline climatology, a persistence filter (flagged ≥4 of last 6 months AND both of the latest 2), vectorizes surviving pixels, computes per-polygon stats, writes a schema-validated `anomalies_v1.geojson`. Needs a Google Earth Engine account + one-time browser login; `--self-test` proves the schema/export logic without needing Earth Engine at all. |
-| `ruhan code.py` | An earlier, different diagnostic script (optical-only, MNDWI-based before/after comparison). Produces the PNGs in `spoonbill_outputs_v2/`, not a GeoJSON. Independent of `step2.py`. |
+| `ruhan code.py` | A different, independent detector (optical-only, MNDWI-based before/after comparison) — not a diagnostic script. It is the one component in this project that has produced real before/after change signal over real imagery; `step2.py` has not yet returned a persistent detection for the site boxes tested (§9). Produces PNGs in `spoonbill_outputs_v2/`, not a GeoJSON. |
 
 ### Track 2 — `track2_rag/`
 | File | Role |
 |---|---|
 | `main.py` | The FastAPI app. Mounts the integration router (§ below) and owns brief generation/caching (`fetch_or_generate_brief`). |
-| `rag/retriever.py` | `HybridRetriever` — embeds the statutory corpus into Chroma with `BAAI/bge-m3`, retrieves top-k chunks for a query. |
+| `rag/retriever.py` | `HybridRetriever` — embeds the statutory corpus into Chroma with `BAAI/bge-m3`, retrieves top-k chunks for a query. Despite the name, `retrieve()` only queries the dense index; the BM25 sparse index it also builds is not called anywhere in the live path. |
 | `rag/generator.py` | `BriefGenerator` — builds the prompt from an anomaly's properties + retrieved chunks, calls Gemini, runs a programmatic **cite-or-abstain guardrail** (drops any citation that doesn't verifiably match a retrieved chunk; forces `abstained_human_review` if none survive), then a **PDPO redaction pass** (regex-strips HKIDs/emails/phone numbers before anything is shown). |
 | `rag/ingest.py` | One-off script: PDFs in `corpus/raw/` → `corpus/chunks.json`. Already run; chunks and the Chroma index are committed. |
 | `batch_generate.py` | Standalone CLI for bulk brief generation. Superseded by `scripts/run_pipeline.py` for day-to-day use. |
@@ -132,6 +132,6 @@ Optional: the FastAPI layer (`API.md`) for live querying instead of static files
 ## 9. Honest state, for Q&A
 
 - **The anomalies on screen are 3 mock examples**, clearly flagged `synthetic: true` in the raw data (though the UI's current model doesn't surface that flag visually — it's there in the file for anyone who inspects it).
-- **The real detector (`spatial/step2.py`) runs against live Earth Engine data** and is methodologically faithful to the SAR+NDWI persistence approach — it just hasn't found a persistent detection in the two small site boxes tried so far. That's a real, diagnosed result (near-zero spatial-temporal overlap satisfying a deliberately strict rule), not a crash.
+- **The real detector (`spatial/step2.py`) runs against live Earth Engine data** and is methodologically faithful to the SAR+NDWI persistence approach — it just hasn't found a persistent detection in the two small site boxes tried so far. That's a real, diagnosed result (near-zero spatial-temporal overlap satisfying a deliberately strict rule), not a crash. Leading hypothesis for *why*: the wetness gate uses NDWI, and algae/floating vegetation on a healthy fishpond can push NDWI negative, incorrectly excluding real ponds before the detection rule ever runs — the same failure mode diagnosed in `ruhan code.py`'s MNDWI fix. Not yet re-tested in `step2.py`.
 - **Briefs are real.** The Gemini + retrieval + cite-or-abstain + PDPO-redaction pipeline is genuinely live and was verified end-to-end with a real API call, not stubbed.
 - **Chip images exist but aren't yet linked to specific anomalies** — the 20 PNGs in `spatial/spoonbill_outputs_v2/` are real before/after satellite imagery, just not tied to a `DB-000x` ID yet.

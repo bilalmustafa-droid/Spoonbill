@@ -37,6 +37,9 @@ div[data-testid="stLayoutWrapper"]:has(> .st-key-map_col) {position: sticky; top
 .sb-footer {font-size:.88rem;color:#495057;border-top:1px solid #DEE2E6;padding-top:.6rem;margin-top:1.2rem;}
 .sb-disclaimer {font-weight:600;color:#212529;background:#F8F9FA;border:1px solid #DEE2E6;padding:.6rem .8rem;
                 border-radius:.3rem;margin-top:.4rem;}
+/* st.metric() clips its value to one line by default; dates like 2025-06-10 get cut off in a
+   narrow column. Let it wrap instead of clipping, and drop the size slightly so it still fits. */
+div[data-testid="stMetricValue"] {white-space: normal; overflow-wrap: break-word; font-size: 1.3rem;}
 </style>
 """
 
