@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-10-17T11:45:49.571170+00:00",
+  "anomalies_source": "contract/mock_anomalies.geojson",
+  "feature_count": 3,
+  "briefs": {
+    "DB-0001": {
+      "status": "ok",
+      "source": "cached",
+      "seconds": 0.0,
+      "human_review_required": true
+    },
+    "DB-0002": {
+      "status": "ok",
+      "source": "cached",
+      "seconds": 0.0,
+      "human_review_required": true
+    },
+    "DB-0003": {
+      "status": "ok",
+      "source": "cached",
+      "seconds": 0.0,
+      "human_review_required": true
+    }
+  },
+  "chip_count": 20,
+  "generator_available": false,
+  "generator_error": null
+}

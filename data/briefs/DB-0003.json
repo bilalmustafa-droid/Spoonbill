@@ -14,9 +14,30 @@
       "Normalized Difference Water Index (NDWI) delta of -0.5 indicating reduction of open water or moisture."
     ],
     "statutory_basis": [
-      "Town Planning Board Guidelines No. 12C (TPB PG-No. 12C), Section 6.4: Intention of the Wetland Buffer Area to protect the ecological integrity of fish ponds and wetlands in the WCA.",
-      "Town Planning Board Guidelines No. 12C, Section 6.5: Requirement of ecological impact assessment for development or redevelopment requiring planning permission within the WBA.",
-      "Town Planning Board Guidelines No. 12C, Section 6.6: Restrictions on open storage or container back-up uses within the WBA."
+      {
+        "claim": "Town Planning Board Guidelines No. 12C (TPB PG-No. 12C), Section 6.4: Intention of the Wetland Buffer Area to protect the ecological integrity of fish ponds and wetlands in the WCA.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "Town Planning Board Guidelines No. 12C, Section 6.5: Requirement of ecological impact assessment for development or redevelopment requiring planning permission within the WBA.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "Town Planning Board Guidelines No. 12C, Section 6.6: Restrictions on open storage or container back-up uses within the WBA.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      }
     ],
     "recommended_action": "Conduct immediate on-site inspection to verify whether unauthorized filling, open storage, or construction is taking place, and cross-reference planning records to verify if valid planning permission or an approved ecological impact assessment exists for the site.",
     "limitations": "Remote sensing observations provide indicative physical surface changes only and cannot establish planning authorization status or specific commercial operational activity without physical ground inspection and official planning register checks."
@@ -31,31 +52,61 @@
       "歸一化差值水體指數（NDWI）變化為 -0.5，顯示水體面積或濕潤度減少。"
     ],
     "statutory_basis": [
-      "城市規劃委員會規劃指引編號 12C 第 6.4 條：濕地緩衝區的規劃意向是保護濕地保育區內魚塘和濕地的生態完整性。",
-      "城市規劃委員會規劃指引編號 12C 第 6.5 條：濕地緩衝區內需要委員會規劃許可的發展或重建，必須提交生態影響評估。",
-      "城市規劃委員會規劃指引編號 12C 第 6.6 條：濕地緩衝區內一般不容許設立新的露天貯物或貨櫃後勤用途。"
+      {
+        "claim": "城市規劃委員會規劃指引編號 12C 第 6.4 條：濕地緩衝區的規劃意向是保護濕地保育區內魚塘和濕地的生態完整性。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會規劃指引編號 12C 第 6.5 條：濕地緩衝區內需要委員會規劃許可的發展或重建，必須提交生態影響評估。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會規劃指引編號 12C 第 6.6 條：濕地緩衝區內一般不容許設立新的露天貯物或貨櫃後勤用途。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      }
     ],
     "recommended_action": "進行實地視察以確認是否存在未經授權的填土、露天貯物或工程活動，並查核法定規劃紀錄以核實該地點是否已獲規劃許可或已提交經批准的生態影響評估。",
     "limitations": "遙感數據僅反映地表物理特徵之變化，在未進行實地調查及核對法定規劃紀錄前，無法確認其法定規劃許可狀況或具體商業作業性質。"
   },
   "citations": [
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "The intention of the WBA is to protect the ecological integrity of the fish ponds and wetland within the WCA and prevent development that would have a negative off-site disturbance impact on the ecological value of fish ponds."
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "The intention of the WBA is to protect the ecological integrity of the fish ponds and wetland within the WCA and prevent development that would have a negative off-site disturbance impact on the ecological value of fish ponds.",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "Within the WBA, for development or redevelopment which requires planning permission from the Board, an ecological impact assessment would also need to be submitted."
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "Within the WBA, for development or redevelopment which requires planning permission from the Board, an ecological impact assessment would also need to be submitted.",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "Applications for new open storage or container back-up uses including workshops within the WBA, whether temporary or permanent, would normally not be allowed in view of the adverse disturbances of such activities on birds"
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "Applications for new open storage or container back-up uses including workshops within the WBA, whether temporary or permanent, would normally not be allowed in view of the adverse disturbances of such activities on birds",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     }
   ],
   "human_review_required": true,

@@ -1,5 +1,21 @@
 {
   "type": "FeatureCollection",
+  "metadata": {
+    "schema_version": "1.0",
+    "generated_at": "2026-10-11T10:00:00Z",
+    "aoi_name": "Deep Bay fishpond belt",
+    "baseline_window": ["2023-01-01", "2024-12-31"],
+    "current_window": ["2025-01-01", "2026-10-01"],
+    "sensors": ["Sentinel-1", "Sentinel-2"],
+    "thresholds": {
+      "delta_vv_db": 3.0,
+      "delta_ndwi": -0.25,
+      "despeckle": "3x3 focal median",
+      "persistence_rule": ">=4 of last 6 months and flagged in latest 2",
+      "min_area_ha": 0.1
+    },
+    "anomaly_count": 3
+  },
   "features": [
     {
       "type": "Feature",
@@ -9,11 +25,25 @@
       },
       "properties": {
         "anomaly_id": "DB-0001",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.035,
+        "centroid_lat": 22.485,
         "area_ha": 1.42,
+        "baseline_vv_db": -19.8,
+        "current_vv_db": -13.9,
         "delta_vv_db": 5.9,
+        "baseline_ndwi": 0.31,
+        "current_ndwi": -0.04,
         "delta_ndwi": -0.35,
+        "first_detection_date": "2025-04-15",
+        "persistence_count": 5,
+        "persistence_total": 6,
+        "confidence_tier": "high",
         "zone_hint": "WBA",
-        "first_detection_date": "2025-04-15"
+        "optical_available": true,
+        "chip_before_png": null,
+        "chip_after_png": null,
+        "synthetic": true
       }
     },
     {
@@ -24,11 +54,25 @@
       },
       "properties": {
         "anomaly_id": "DB-0002",
+        "site_id": "SITE_B",
+        "centroid_lon": 114.015,
+        "centroid_lat": 22.505,
         "area_ha": 0.85,
+        "baseline_vv_db": -19.5,
+        "current_vv_db": -15.3,
         "delta_vv_db": 4.2,
+        "baseline_ndwi": 0.28,
+        "current_ndwi": 0.06,
         "delta_ndwi": -0.22,
+        "first_detection_date": "2025-05-02",
+        "persistence_count": 4,
+        "persistence_total": 6,
+        "confidence_tier": "medium",
         "zone_hint": "WCA",
-        "first_detection_date": "2025-05-02"
+        "optical_available": true,
+        "chip_before_png": null,
+        "chip_after_png": null,
+        "synthetic": true
       }
     },
     {
@@ -39,11 +83,25 @@
       },
       "properties": {
         "anomaly_id": "DB-0003",
+        "site_id": "SITE_A",
+        "centroid_lon": 114.055,
+        "centroid_lat": 22.475,
         "area_ha": 3.10,
+        "baseline_vv_db": -20.0,
+        "current_vv_db": -12.5,
         "delta_vv_db": 7.5,
+        "baseline_ndwi": 0.33,
+        "current_ndwi": -0.17,
         "delta_ndwi": -0.50,
+        "first_detection_date": "2025-06-10",
+        "persistence_count": 6,
+        "persistence_total": 6,
+        "confidence_tier": "high",
         "zone_hint": "WBA",
-        "first_detection_date": "2025-06-10"
+        "optical_available": true,
+        "chip_before_png": null,
+        "chip_after_png": null,
+        "synthetic": true
       }
     }
   ]

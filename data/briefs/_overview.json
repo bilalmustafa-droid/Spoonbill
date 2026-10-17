@@ -1,0 +1,19 @@
+{
+  "en": {
+    "title": "Deep Bay Wetland Monitoring Overview",
+    "summary": "3 anomalies currently tracked across 2 site(s), totalling 5.37 ha."
+  },
+  "zh_hant": {
+    "title": "深圳灣濕地監測概覽",
+    "summary": "目前追蹤 3 個異常點，分布於 2 個地點，總面積 5.37 公頃。"
+  },
+  "totals": {
+    "anomaly_count": 3,
+    "total_area_ha": 5.37,
+    "needing_review": 3,
+    "by_site": {
+      "SITE_A": 2,
+      "SITE_B": 1
+    }
+  }
+}

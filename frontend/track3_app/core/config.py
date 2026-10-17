@@ -8,7 +8,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 APP_DIR = Path(__file__).resolve().parents[1]          # track3_app/ (folder name is not hardcoded)
-REPO_ROOT = APP_DIR.parent
+# PROJECT_CONTEXT.md puts track3_app/ directly at the repo root, a sibling of
+# data/ and contract/ (matching track1_gis/ and track2_rag/). The actual repo
+# has an extra frontend/ wrapper around track3_app/ that isn't in that plan,
+# so the real root is two levels up, not one -- fixed here rather than
+# requiring SPOONBILL_DATA_DIR to be set just to find the shared data/contract
+# folders every other track already writes to.
+REPO_ROOT = APP_DIR.parent.parent
 CONTRACT_DIR = REPO_ROOT / "contract"
 REPO_DATA_DIR = REPO_ROOT / "data"
 FIXTURE_DATA_DIR = APP_DIR / "fixtures" / "data"

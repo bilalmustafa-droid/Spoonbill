@@ -14,9 +14,30 @@
       "First detected: 2025-04-15 within the designated Wetland Buffer Area (WBA)."
     ],
     "statutory_basis": [
-      "TPB PG-No. 12C, paragraph 6.4: Intention of the WBA is to protect the ecological integrity of fish ponds and wetland within the WCA and prevent development causing negative off-site disturbance.",
-      "TPB PG-No. 12C, paragraph 6.5: Development or redevelopment requiring planning permission from the Board within the WBA requires submission of an ecological impact assessment.",
-      "TPB PG-No. 12C, paragraph 6.6: Applications for new open storage or container back-up uses within the WBA would normally not be allowed due to adverse disturbance to birds."
+      {
+        "claim": "TPB PG-No. 12C, paragraph 6.4: Intention of the WBA is to protect the ecological integrity of fish ponds and wetland within the WCA and prevent development causing negative off-site disturbance.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "TPB PG-No. 12C, paragraph 6.5: Development or redevelopment requiring planning permission from the Board within the WBA requires submission of an ecological impact assessment.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "TPB PG-No. 12C, paragraph 6.6: Applications for new open storage or container back-up uses within the WBA would normally not be allowed due to adverse disturbance to birds.",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      }
     ],
     "recommended_action": "Conduct an urgent on-site inspection to verify physical ground conditions and check Planning Department records for valid planning permissions or ecological impact assessments associated with site DB-0001.",
     "limitations": "Findings are based solely on automated satellite radar and optical index alerts; ground-truthing and cadastral title verification are necessary before statutory enforcement steps can be confirmed."
@@ -31,31 +52,61 @@
       "首次偵測日期：2025年4月15日，位於濕地緩衝區（WBA）範圍內。"
     ],
     "statutory_basis": [
-      "城市規劃委員會指引第12C號第6.4段：濕地緩衝區的規劃意向是保護濕地保育區內魚塘和濕地的生態完整性，並防止對魚塘生態價值產生負面影響的發展。",
-      "城市規劃委員會指引第12C號第6.5段：在濕地緩衝區內進行須向城規會申請許可的發展或重建，須提交生態影響評估。",
-      "城市規劃委員會指引第12C號第6.6段：鑒於露天貯物或貨櫃後勤用途對鳥類造成干擾，在濕地緩衝區內的新申請通常不會獲得批准。"
+      {
+        "claim": "城市規劃委員會指引第12C號第6.4段：濕地緩衝區的規劃意向是保護濕地保育區內魚塘和濕地的生態完整性，並防止對魚塘生態價值產生負面影響的發展。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會指引第12C號第6.5段：在濕地緩衝區內進行須向城規會申請許可的發展或重建，須提交生態影響評估。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會指引第12C號第6.6段：鑒於露天貯物或貨櫃後勤用途對鳥類造成干擾，在濕地緩衝區內的新申請通常不會獲得批准。",
+        "citation_ids": [
+          "pg12c_e-p6",
+          "pg12c_e-p6",
+          "pg12c_e-p6"
+        ]
+      }
     ],
     "recommended_action": "安排實地視察以確認現場地貌變動，並核查規劃署檔案以確認該地段是否已獲取有效規劃許可或已提交生態影響評估報告。",
     "limitations": "本摘要僅依據自動化衛星雷達及光學指數監測數據生成，採取正式法定執法行動前必須進行實地核證及查核地段業權。"
   },
   "citations": [
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines TPB PG-No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "The intention of the WBA is to protect the ecological integrity of the fish ponds and wetland within the WCA and prevent development that would have a negative off-site disturbance impact on the ecological value of fish ponds."
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines TPB PG-No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "The intention of the WBA is to protect the ecological integrity of the fish ponds and wetland within the WCA and prevent development that would have a negative off-site disturbance impact on the ecological value of fish ponds.",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines TPB PG-No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "Within the WBA, for development or redevelopment which requires planning permission from the Board, an ecological impact assessment would also need to be submitted."
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines TPB PG-No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "Within the WBA, for development or redevelopment which requires planning permission from the Board, an ecological impact assessment would also need to be submitted.",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     },
     {
-      "chunk_id": "pg12c_e-p6",
-      "document_title": "Town Planning Board Guidelines TPB PG-No. 12C",
-      "page_number": 6,
-      "verbatim_quote": "Applications for new open storage or container back-up uses including workshops within the WBA, whether temporary or permanent, would normally not be allowed in view of the adverse disturbances of such activities on birds"
+      "id": "pg12c_e-p6",
+      "doc": "Town Planning Board Guidelines TPB PG-No. 12C",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 6,
+      "section": "p.6",
+      "quote": "Applications for new open storage or container back-up uses including workshops within the WBA, whether temporary or permanent, would normally not be allowed in view of the adverse disturbances of such activities on birds",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     }
   ],
   "human_review_required": true,

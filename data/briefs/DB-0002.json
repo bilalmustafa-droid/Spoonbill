@@ -14,9 +14,24 @@
       "Anomaly first detected on 2025-05-02."
     ],
     "statutory_basis": [
-      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: The planning intention of the WCA is to conserve the ecological value of fish ponds.",
-      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: New development within the WCA is not permitted unless supporting conservation or serving as an essential infrastructure project with overriding public interest.",
-      "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: Wetland compensation and planning permission are required for any development involving pond filling."
+      {
+        "claim": "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: The planning intention of the WCA is to conserve the ecological value of fish ponds.",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      },
+      {
+        "claim": "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: New development within the WCA is not permitted unless supporting conservation or serving as an essential infrastructure project with overriding public interest.",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      },
+      {
+        "claim": "Town Planning Board Guidelines (TPB PG-No. 12C), Section 6.1: Wetland compensation and planning permission are required for any development involving pond filling.",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      }
     ],
     "recommended_action": "Conduct an urgent on-site inspection to verify the nature of ground works, check planning register records for valid planning permission under Section 16 of the Town Planning Ordinance, and issue a statutory notice if unauthorized pond filling is confirmed.",
     "limitations": "Findings are based on satellite radar and optical spectral analysis without ground truthing. Cadastral boundary verification and field inspection are required to confirm precise land status and actual on-site activities."
@@ -31,19 +46,37 @@
       "最初偵測日期為2025年5月2日。"
     ],
     "statutory_basis": [
-      "城市規劃委員會規劃指引編號12C第6.1段：濕地保育區的規劃意向是保育魚塘的生態價值。",
-      "城市規劃委員會規劃指引編號12C第6.1段：除非為支援該區生態價值保育或具壓倒性公眾利益之必要基建，否則濕地保育區內不容許新發展。",
-      "城市規劃委員會規劃指引編號12C第6.1段：任何涉及填塘的發展均須進行濕地補償，並須取得規劃許可。"
+      {
+        "claim": "城市規劃委員會規劃指引編號12C第6.1段：濕地保育區的規劃意向是保育魚塘的生態價值。",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會規劃指引編號12C第6.1段：除非為支援該區生態價值保育或具壓倒性公眾利益之必要基建，否則濕地保育區內不容許新發展。",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      },
+      {
+        "claim": "城市規劃委員會規劃指引編號12C第6.1段：任何涉及填塘的發展均須進行濕地補償，並須取得規劃許可。",
+        "citation_ids": [
+          "pg12c_e-p4"
+        ]
+      }
     ],
     "recommended_action": "儘速安排實地督察以核實地面工程性質，查核規劃許可名冊是否涵蓋該地段，如證實涉及違例填塘應採取進一步法定執行管制行動。",
     "limitations": "本分析基於衛星雷達及光學頻譜遙感數據，尚未進行地面實地核證。須覆核地段界線及展開實地調查以確定確切土地現況。"
   },
   "citations": [
     {
-      "chunk_id": "pg12c_e-p4",
-      "document_title": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
-      "page_number": 4,
-      "verbatim_quote": "Wetland compensation is required for any development involving pond filling and mitigation measures against disturbance would be necessary. They would be imposed as part of the planning approval conditions."
+      "id": "pg12c_e-p4",
+      "doc": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "doc_title_zh": "Town Planning Board Guidelines for Application for Developments within Deep Bay Area (TPB PG-No. 12C)",
+      "page": 4,
+      "section": "p.4",
+      "quote": "Wetland compensation is required for any development involving pond filling and mitigation measures against disturbance would be necessary. They would be imposed as part of the planning approval conditions.",
+      "source_url": "https://www.tpb.gov.hk/en/forms/Guidelines/pg12c_e.pdf"
     }
   ],
   "human_review_required": true,
