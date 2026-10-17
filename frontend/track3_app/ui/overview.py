@@ -1,19 +1,50 @@
-"""Optional overview tab (data/briefs/_overview.json, Phase 2). Shown only when the file exists.
+"""The "Method and evidence" tab. Two independent sections, either of which
+may be absent:
 
-The overview has no JSON Schema in contract v1.0, so only the documented keys are read and every value
-passes through the content guard.
+- render_evidence(): data/evidence_chips/manifest.json, real before/after
+  crops from the live optical detector (spatial/ruhan code.py via
+  build_demo_chips.py). Never tied to a specific anomaly_id -- see
+  build_demo_chips.py for why pairing real imagery with a synthetic
+  anomaly's numbers was ruled out. This is the primary content of the tab.
+- render(): the optional data/briefs/_overview.json dashboard summary
+  (Phase 2, no JSON Schema in contract v1.0), kept as a secondary section
+  since it mostly restates numbers already on the header.
 """
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import streamlit as st
 
+from core import loader
 from core.content_guard import screen
 from core.i18n import t
 
 
 def _safe(value) -> str | None:
     return screen(value).text if isinstance(value, str) else None
+
+
+def render_evidence(doc: dict, data_dir: Path, lang: str) -> None:
+    st.markdown(f"### {t('evidence_heading', lang)}")
+    st.markdown(t("evidence_intro", lang))
+    for sample in doc.get("samples", []):
+        before = loader.evidence_chip_path(data_dir, sample.get("before_file"))
+        after = loader.evidence_chip_path(data_dir, sample.get("after_file"))
+        if before is None or after is None:
+            continue
+        area = sample.get("approx_area_ha")
+        caption = t(
+            "evidence_caption", lang,
+            area=f"{area:.2f}" if isinstance(area, (int, float)) else "?",
+            site=sample.get("site_label", sample.get("site", "")),
+            incident=sample.get("incident", ""),
+        )
+        left, right = st.columns(2)
+        left.image(str(before), caption=f"{t('chip_before', lang)} · {caption}", width="stretch")
+        right.image(str(after), caption=f"{t('chip_after', lang)} · {caption}", width="stretch")
+    st.divider()
 
 
 def render(doc: dict, lang: str) -> None:

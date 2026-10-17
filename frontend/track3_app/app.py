@@ -99,12 +99,21 @@ try:
 except ContractError as exc:
     data.report_issue(str(exc), source.is_fixture)
 
-if overview_doc:
+evidence_doc = None
+try:
+    evidence_doc = data.evidence_gallery(str(source.path), fingerprint)
+except ContractError as exc:
+    data.report_issue(str(exc), source.is_fixture)
+
+if overview_doc or evidence_doc:
     tab_map, tab_overview = st.tabs([t("tab_map", lang), t("tab_overview", lang)])
     with tab_map:
         _main_view(collection, filtered, briefs, source, lang)
     with tab_overview:
-        overview.render(overview_doc, lang)
+        if evidence_doc:
+            overview.render_evidence(evidence_doc, source.path, lang)
+        if overview_doc:
+            overview.render(overview_doc, lang)
 else:
     _main_view(collection, filtered, briefs, source, lang)
 

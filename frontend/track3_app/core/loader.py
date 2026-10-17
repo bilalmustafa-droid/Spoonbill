@@ -192,6 +192,32 @@ def load_overview(data_dir: Path) -> dict | None:
     return doc
 
 
+def load_evidence_gallery(data_dir: Path) -> dict | None:
+    """Optional data/evidence_chips/manifest.json -- real before/after crops from the live
+    optical detector, never linked to a specific anomaly_id. None when absent; ContractError
+    if not a JSON object with a 'samples' list."""
+    path = Path(data_dir) / config.EVIDENCE_CHIPS_DIRNAME / config.EVIDENCE_MANIFEST_FILENAME
+    if not path.is_file():
+        return None
+    doc = read_json_strict(path)
+    label = f"{config.EVIDENCE_CHIPS_DIRNAME}/{config.EVIDENCE_MANIFEST_FILENAME}"
+    if not isinstance(doc, dict) or not isinstance(doc.get("samples"), list):
+        raise ContractError(label, ["top level must be a JSON object with a 'samples' list"])
+    return doc
+
+
+def evidence_chip_path(data_dir: Path, filename: str | None) -> Path | None:
+    """Resolve one evidence chip image, relative to data_dir/evidence_chips/. Same
+    traversal/missing-file guard as chip_path."""
+    if not filename:
+        return None
+    base = (Path(data_dir) / config.EVIDENCE_CHIPS_DIRNAME).resolve()
+    candidate = (base / filename).resolve()
+    if not candidate.is_relative_to(base) or not candidate.is_file():
+        return None
+    return candidate
+
+
 def chip_path(data_dir: Path, relative: str | None) -> Path | None:
     """Resolve a chip path relative to data_dir. None when the field is null, the file is missing,
     or the path would escape data_dir."""
