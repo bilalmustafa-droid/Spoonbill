@@ -32,11 +32,6 @@ What it does, in order:
    data/chips/ as raw assets -- NOT linked to any anomaly_id (Track 1 hasn't
    populated chip_before_png/chip_after_png yet), so no per-anomaly mapping
    is invented; every current feature has those fields set to null.
-6. Runs build_demo_chips.generate() to cut real before/after evidence chips
-   out of those same panels into data/evidence_chips/, for the UI's "Method
-   and evidence" tab. These are never linked to a specific anomaly_id either
-   -- see build_demo_chips.py for why pairing real imagery with a synthetic
-   anomaly's numbers was ruled out.
 
 Usage:
     python scripts/run_pipeline.py
@@ -57,7 +52,6 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from track2_rag.api import anomalies_store
 from track2_rag.api.brief_adapter import adapt_brief_for_frontend
-import build_demo_chips
 
 SITES_SOURCE = REPO_ROOT / "contract" / "sites.json"
 CHIPS_SOURCE_DIR = REPO_ROOT / "spatial" / "spoonbill_outputs_v2"
@@ -133,12 +127,12 @@ def main():
     briefs_dir.mkdir(parents=True, exist_ok=True)
     chips_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"[1/6] Loading anomalies from {anomalies_store.ANOMALIES_PATH} ...")
+    print(f"[1/5] Loading anomalies from {anomalies_store.ANOMALIES_PATH} ...")
     feature_collection = anomalies_store.load_anomalies(force_reload=True)
     features = feature_collection.get("features", [])
     print(f"      loaded {len(features)} feature(s)")
 
-    print(f"[2/6] Writing {data_dir / 'anomalies_v1.geojson'} (pass-through, unmodified) ...")
+    print(f"[2/5] Writing {data_dir / 'anomalies_v1.geojson'} (pass-through, unmodified) ...")
     with open(data_dir / "anomalies_v1.geojson", "w", encoding="utf-8") as f:
         json.dump(feature_collection, f, ensure_ascii=False, indent=2)
 
@@ -147,14 +141,14 @@ def main():
     brief_results: dict = {}
 
     if args.skip_briefs:
-        print("[3/6] Skipping brief generation (--skip-briefs)")
+        print("[3/5] Skipping brief generation (--skip-briefs)")
     else:
         needs_generation = args.force or any(
             not (briefs_dir / f"{f['properties']['anomaly_id']}.json").exists()
             for f in features
         )
         if needs_generation:
-            print("[3/6] At least one brief needs live generation -- initializing BriefGenerator ...")
+            print("[3/5] At least one brief needs live generation -- initializing BriefGenerator ...")
             try:
                 from track2_rag.rag.generator import BriefGenerator
                 generator = BriefGenerator("track2_rag/chroma_db", "track2_rag/corpus/chunks.json")
@@ -162,7 +156,7 @@ def main():
                 generator_error = str(e)
                 print(f"      WARNING: BriefGenerator unavailable ({e}); only cached briefs will be used")
         else:
-            print("[3/6] All briefs already cached, re-shaping for the frontend contract only")
+            print("[3/5] All briefs already cached, re-shaping for the frontend contract only")
 
         for feature in features:
             anomaly_id = feature["properties"]["anomaly_id"]
@@ -179,12 +173,12 @@ def main():
                 brief_results[anomaly_id] = {"status": "error", "error": str(e)}
                 print(f"      {anomaly_id}: FAILED -- {e}")
 
-    print(f"[4/6] Writing {briefs_dir / '_overview.json'} ...")
+    print(f"[4/5] Writing {briefs_dir / '_overview.json'} ...")
     overview = build_overview(feature_collection, brief_results)
     with open(briefs_dir / "_overview.json", "w", encoding="utf-8") as f:
         json.dump(overview, f, ensure_ascii=False, indent=2)
 
-    print("[5/6] Copying raw chip images (not yet linked to any anomaly_id) ...")
+    print("[5/5] Copying chip images (raw assets, not yet linked to any anomaly_id) ...")
     chip_count = 0
     if CHIPS_SOURCE_DIR.exists():
         for png in CHIPS_SOURCE_DIR.glob("*.png"):
@@ -192,21 +186,12 @@ def main():
             chip_count += 1
     print(f"      copied {chip_count} chip image(s)")
 
-    print("[6/6] Building evidence chip gallery (cropped, enhanced, captioned) ...")
-    evidence_count = 0
-    try:
-        evidence_manifest = build_demo_chips.generate(limit=3, out_dir=data_dir / "evidence_chips")
-        evidence_count = len(evidence_manifest["samples"])
-    except RuntimeError as e:
-        print(f"      WARNING: evidence chip generation skipped: {e}")
-
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "anomalies_source": str(anomalies_store.ANOMALIES_PATH),
         "feature_count": len(features),
         "briefs": brief_results,
         "chip_count": chip_count,
-        "evidence_chip_count": evidence_count,
         "generator_available": generator is not None,
         "generator_error": generator_error,
     }
