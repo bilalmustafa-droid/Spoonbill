@@ -185,25 +185,8 @@ STRINGS: dict[str, dict[str, str]] = {
 
     # overview tab
     "tab_map": {"en": "Map and detail", "zh_hant": "地圖及詳情"},
-    "tab_overview": {"en": "Method and evidence", "zh_hant": "方法與實證"},
+    "tab_overview": {"en": "Overview", "zh_hant": "總覽"},
     "overview_totals": {"en": "Totals reported by the analysis pipeline", "zh_hant": "分析流程報告的總數"},
-
-    # evidence gallery (real detector imagery, not tied to any specific anomaly)
-    "evidence_heading": {"en": "Real detector imagery", "zh_hant": "真實偵測影像"},
-    "evidence_intro": {
-        "en": "These are real Sentinel-2 crops from our live optical change detector, run against "
-              "actual satellite imagery over Deep Bay. They are illustrative evidence that the "
-              "detection method works, not the imagery for any specific anomaly. The three "
-              "anomalies shown on the map are synthetic fixtures that conform to the production "
-              "data schema, used to demonstrate the full pipeline end to end.",
-        "zh_hant": "以下為我們的即時光學變化偵測器對深圳灣實際衛星影像所截取的真實 Sentinel-2 影像，"
-                   "用以說明偵測方法確實有效，並非任何特定異常點的影像。地圖上顯示的三個異常點為"
-                   "符合正式資料結構的合成示範數據，用以展示整個流程的運作方式。",
-    },
-    "evidence_caption": {
-        "en": "~{area} ha near {site}, {incident}",
-        "zh_hant": "約 {area} 公頃，位於{site}附近，{incident}",
-    },
 
     # demo
     "demo_heading": {"en": "Demo path", "zh_hant": "示範路線"},

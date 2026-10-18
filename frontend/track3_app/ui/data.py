@@ -34,11 +34,6 @@ def overview(data_dir: str, fingerprint: str) -> dict | None:
 
 
 @st.cache_data(show_spinner=False)
-def evidence_gallery(data_dir: str, fingerprint: str) -> dict | None:
-    return loader.load_evidence_gallery(Path(data_dir))
-
-
-@st.cache_data(show_spinner=False)
 def simplified_features(data_dir: str, fingerprint: str) -> dict[str, dict]:
     """anomaly_id -> simplified GeoJSON geometry for map drawing (numbers shown elsewhere are untouched)."""
     collection = anomalies(data_dir, fingerprint)
