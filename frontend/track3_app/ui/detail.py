@@ -62,22 +62,26 @@ def _metrics(a: Anomaly, lang: str) -> None:
     c2.metric(t("first_detected", lang), fmt_date(p.first_detection_date, lang))
 
 
-def _chip(col, path: Path | None, caption: str, is_fixture: bool, lang: str) -> None:
+def _chip(col, path: Path, caption: str, is_fixture: bool, lang: str) -> None:
     with col:
-        if path is None:
-            st.markdown(f'<div class="sb-chip-placeholder" role="img" aria-label="{esc(t("chip_missing", lang))}">'
-                        f'{esc(t("chip_missing", lang))}</div>', unsafe_allow_html=True)
-            st.caption(caption)
-            return
         label = f"{caption} · {t('chip_synthetic', lang)}" if is_fixture else caption
         st.image(str(path), caption=label, width="stretch")
 
 
 def _chips(a: Anomaly, source: DataSource, lang: str) -> None:
     p = a.properties
+    before_path = loader.chip_path(source.path, p.chip_before_png)
+    after_path = loader.chip_path(source.path, p.chip_after_png)
+    # No placeholder box when neither image exists -- an empty dashed square
+    # reads as a broken feature, and for today's data neither chip is ever
+    # set, so this section is simply skipped rather than shown empty.
+    if before_path is None and after_path is None:
+        return
     left, right = st.columns(2)
-    _chip(left, loader.chip_path(source.path, p.chip_before_png), t("chip_before", lang), source.is_fixture, lang)
-    _chip(right, loader.chip_path(source.path, p.chip_after_png), t("chip_after", lang), source.is_fixture, lang)
+    if before_path is not None:
+        _chip(left, before_path, t("chip_before", lang), source.is_fixture, lang)
+    if after_path is not None:
+        _chip(right, after_path, t("chip_after", lang), source.is_fixture, lang)
 
 
 def _timeseries(a: Anomaly, metadata: Metadata, lang: str) -> None:
